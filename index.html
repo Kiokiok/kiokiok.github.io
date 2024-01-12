@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gonzalez Damien - Resume</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+
+h1 {
+	padding-bottom: 0.1em;
+	font-family: 'Noto Sans', sans-serif;
+	/*line-height: 1.2;*/
+	/*border-bottom-width: 1px;*/
+	/*border-bottom-style: solid;*/
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+	font-family: 'Noto Sans', sans-serif;
+	padding-bottom: 0.1em;
+	margin-bottom: 0.3em;
+	margin-top: 0.3em;
+	margin-left: none;
+}
+
+button {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	/*font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";*/
+	padding: 0 12px;
+	background-color: #202022;
+	color: lavender;
+	font-family: 'Work Sans', sans-serif;
+	overflow-y: scroll;
+}
+
+pre {
+	background-color: #25232c;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+
+<style>
+/* Custom Stuff */
+
+/* https://www.w3schools.com/howto/howto_js_collapsible.asp*/
+.content, .main-content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #2f2f33;
+}
+.main-content {
+	display: block;
+}
+
+.collapsible, .main-showcase {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border-left: 6px solid rgb(90, 230, 255);
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  text-align: left;
+
+  outline: none;
+  font-size: 24px;
+  line-height: 16px;
+  background-color: #262630;
+  color: lavender;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #41414b;
+}
+
+
+.collapsible::before {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 22px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+  outline: none;
+}
+
+.collapsible strong {
+	text-transform: none;
+}
+
+.active:before {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.padder {
+	padding: 5px;
+}
+
+thead {
+	font-family: 'Noto Sans', sans-serif;
+	background-color: #262630;
+}
+
+.vert-layout iframe {
+	display: block;
+}
+
+a:link {
+	color: rgb(75, 175, 241);
+}
+
+a:visited {
+	color: rgb(117, 148, 204);
+}
+
+.type {
+	text-align: end;
+	position: absolute;
+	right : 86px;
+	transform:  translateY(-70%);
+	font-size: 54px;
+	line-height: 100%;
+	color: rgba(255, 255, 255, 0.085);
+	white-space: nowrap;
+}
+
+.paragraph {
+	white-space: pre-line;
+	line-height: fit-content;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	margin-left: 10px;
+	padding-left: 4px;
+}
+
+.main-showcase {
+	cursor:default;
+}
+
+/* Tabs */
+
+ /* Style the tab */
+ .tab {
+  overflow: hidden;
+  /*border: 1px solid #ccc;*/
+  background-color: #262630;
+  color: lavender;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: #262630;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  min-width: 120px;
+  color: lavender;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #41414b;
+}
+
+/* Create an active/current tablink class */
+.tab button.tabactive {
+  background-color: #41414b;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  /*border: 1px solid #ccc;*/
+  border-top: none;
+  border-left: 3px solid rgb(90, 230, 255);
+} 
+
+.shown {
+	display: block;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+.columns {
+	display: flex;
+}
+
+
+
+
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+</style>
+
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Work+Sans&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+
+<div class="padder"></div>
+<div class="padder"></div>
+<div class="padder"></div>
+
+<h1 id="me">Gonzalez Damien</h1>
+<div>he / him</div>
+
+<div class="padder"></div>
+
+<div class="tab">
+	<button class="tablinks" onclick="openCity(event, 'aboutme')" id="defaultOpen">About me</button>
+	<button class="tablinks" onclick="openCity(event, 'skills')">Skills</button>
+</div>
+
+<div id="aboutme" class="tabcontent" >
+	<div class="padder"></div>
+	<div class="paragraph">Since I graduated from the ETPA Game design school in 2019, I have spent these last 5 years improving my skills
+		by tackling on new challenges on every project I work on. I have worked with VR, Networked games, Mobile, Web as well as PC.
+		I like experimenting with new tools and workflows, honing my skills and learning by doing.
+		I'm always yearning to learn more in order to bring great experiences to people.
+		Throughout the years, I have acquired various skills on many tools, ranging from programming language, to engines, to 3D and 2D software.
+		I'm very passionate about my work in games, and I enjoy working in many different fields of the trade, albeit programming remains my favorite domain to explore.
+		
+
+		My favorites game genres includes Action RPGs, Strategy RPGs, Sandbox survivals and Tactics games.
+		During my free time, I enjoy learning about new things, reading mangas and fantasy novels, or trying out my hand at art.
+	</div>
+</div>
+
+<div id="skills" class="tabcontent">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th></th>
+		<th>Worked with :</th>
+		<th>Experimented with :</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td><b>Engines</b></td>
+		<td>Unity , Unreal , Godot</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td><b>Libraries</b></td>
+		<td></td>
+		<td>Raylib , MonoGame , LibGDX</td>
+		</tr>
+		<tr>
+		<td><b>Languages</b></td>
+		<td>C# , C++ , LUA , JS</td>
+		<td>Odin, Nim, Haxe, Python</td>
+		</tr>
+		<tr>
+		<td><b>Software</b></td>
+		<td>Blender , 3DsMax , Substance Designer , Photoshop</td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+	
+	<div><b> Languages spoken :</b></div>
+	<ul>
+		<li> 🇫🇷 French - Native</li>
+		<li> 🇬🇧 English - Fluent</li>
+	</ul>
+	
+
+</div>
+
+
+<div class="padder"></div>
+
+
+<h1 id="portfolio">Projects portfolio :</h1>
+
+
+<button id="cliffdivers-2023" class="main-showcase" disabled><strong>Cliffdivers (2023):</strong> <div class="type">PC GAME</div> </button>
+<div class="main-content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td><i>Unamed</i></td>
+		<td>4 people</td>
+		<td>Unreleased</td>
+		<td>12 months</td>
+		</tr>
+		</tbody>
+	</table>
+
+
+		<h3 id="project-description">Project description</h3>
+		<p>A procedural multiplayer survival adventure game. Made in Godot.</p>
+		<div class="paragraph">My latest and biggest project to date. I worked full time on this project for all of 2023, with the end goal of co-founding a studio.
+			I left the team at the beginning of 2024 for personal reasons, but the project was a lot of fun to work on and taught me a lot of things.
+			I was the sole programmer on the team, and handled pretty much every technical aspect of it. 
+			The game features an open, vertical, procedural world exploreable in multiplayer. The players have many tools available to help them traverse the atypical world.
+		</div>
+
+
+		<div class="padder"></div>
+		<div class="vert-layout">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/5X1Ran8f5z4?si=M8iIkVL8AYPKIZX_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Responsible for the entirety of the programming</li>
+		<li>Languages used : C#, LUA, C++, GDScript</li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Integrated <a href="https://www.flecs.dev/flecs/" target="_blank" rel="noopener noreferrer">Flecs</a> on top of Godot engine</li>
+		<li>Built a network entity replication system on top of <a href="http://enet.bespin.org/" target="_blank" rel="noopener noreferrer">Enet</a> ( creation, deletion, state change)</li>
+		<li>Built a custom renderer system to render entities efficiently</li>
+		<li>Used a data-driven approach to declare entities using the LUA scripting langage</li>
+		<li>Built a basic network interest manager and world streaming system</li>
+		<li>Built a custom entity spawning system on top of <a href="https://github.com/Zylann/godot_voxel" target="_blank" rel="noopener noreferrer">VoxelTools</a></li>
+		<li>Built an extensive state machine system for the character controller</li>
+		<li>Implemented the character controller and various gameplay tools</li>
+		<li>UI programming</li>
+		
+		</ul>
+</div>
+<div class="padder"></div>
+
+<button id="invoiders--2020---2021" class="collapsible"><strong>Invoiders ( 2020 - 2021 ) :</strong><div class="type">VR GAME</div> </button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td>Aiko Creative</td>
+		<td>8 people</td>
+		<td>Available</td>
+		<td>12 months</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3 id="project-description">Project Description :</h3>
+		<p>Virtual Reality Tower Defense / Shooter for the Meta Quest 1 / 2, and Oculus Rift S.</p>
+		<!--<h3 id="video"><strong><a href="https://www.youtube.com/watch?v=0nrZXLiCtr4">Video</a></strong></h3>-->
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/0nrZXLiCtr4?si=Kqkfrvz4mJB68U0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unity</li>
+		<li>Language used : C#</li>
+		<li>Platforms : <a href="https://www.meta.com/fr-fr/experiences/3807370422692379/">Android</a>, <a href="https://www.meta.com/fr-fr/experiences/pcvr/4434572513250824/">PC</a></li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Responsible for programming the character system in VR</li>
+		<li>Developed various weapons useable in VR ( Bow, Revolver, Machine Gun, Unreleased weapons)</li>
+		<li>Built custom tools to help with enemy pathing and wave management for designers</li>
+		<li>Developped the towers various interactions</li>
+		<li>VR UI programming</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+<button id="cliffdivers-prototype-2021" class="collapsible"><strong>Cliffdivers prototype (2021) :</strong> <div class="type">GAME PROTOTYPE</div> </button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td><i>Unamed</i></td>
+		<td>4 people</td>
+		<td>Internal</td>
+		<td>6 months</td>
+		</tr>
+		</tbody>
+		</table>
+		
+		<h3 id="project-description">Project description :</h3>
+		
+		<p>The prototype for Cliffdivers before entering production. Worked on during free time.</p>
+		
+		<!--<h3 id="video"><strong><a href="https://www.youtube.com/watch?v=QQgfagbYPiA">Video Link</a></strong></h3>-->
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/QQgfagbYPiA?si=-3GFXxj1MzUmcuUd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unreal Engine 5</li>
+		<li>Languages used : C++, Blueprints</li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Prototyped a character controller, network replicated using Unreal Network System</li>
+		<li>Setup of a basic entity renderer</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+<button id="aenigma-venatorum--2021---2022" class="collapsible"><strong>Aenigma Venatorum ( 2021 - 2022 ) :</strong> <div class="type">MOBILE GAME</div> </button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td>Aiko Creative</td>
+		<td>6 people</td>
+		<td>Released</td>
+		<td>12 months</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3 id="project-description">Project Description :</h3>
+		<p>3D Puzzle Mobile game. Recreation of existing physical puzzles, at the demand of <a href="https://nkd-puzzle.com/blog/" target="_blank" rel="noopener noreferrer">NKD Puzzle</a></p>
+		<!--<h3 id="video"><strong><a href="https://www.youtube.com/watch?v=WIWIGfebQOE">Video</a></strong></h3>-->
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/WIWIGfebQOE?si=cBiK2dv7hJD0IKIM" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unity</li>
+		<li>Language used : C#</li>
+		<li>Platforms : <a href="https://play.google.com/store/apps/details?id=com.NKDPuzzle.AenigmaVenatorumFull&amp;hl=fr&amp;gl=US" target="_blank" rel="noopener noreferrer">Android</a>, <a href="https://apps.apple.com/fr/app/aenigma-venatorum-integral/id1628758670" target="_blank" rel="noopener noreferrer">IOS</a></li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Recreated physical puzzles virtually</li>
+		<li>UI programming</li>
+		<li>Save system for puzzle progression</li>
+		<li>Shaders Programming</li>
+		<li>Virtual Drawing Pad with save system</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+
+
+<button id="aeroport-de-paris-vr--2019" class="collapsible"><strong>Aeroport de Paris VR ( 2019 ) :</strong> <div class="type">TRAINING TOOL</div> </button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td>Aiko Creative</td>
+		<td>4 people</td>
+		<td>Shipped</td>
+		<td>8 months</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3 id="project-description">Project Description :</h3>
+		<p>Virtual Reality Training tool for the Paris Charles de Gaule Airport.</p>
+		<p>Supports up to 6 trainees in local multiplayer with full body tracking using the Vive Pro.</p>
+		<!--<h3 id="video"><strong><a href="https://www.youtube.com/watch?v=S7qoEEaUn5I">Video</a></strong></h3>-->
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/S7qoEEaUn5I?si=GSJll8_AFX-lsd0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unreal Engine 4</li>
+		<li>Languages used : Blueprint</li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Responsible for programming the character system in VR</li>
+		<li>Developped a full body tracking system</li>
+		<li>Local multiplayer with full body tracking animations replication</li>
+		<li>External control from a control panel for trainer</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+<h2 id="Other">Other Projects :</h2>
+
+<button id="don-random" class="collapsible"><strong>Don Random - GMTK Jam 2022 :</strong> <div class="type">JAM GAME</div></button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td>Personnal</td>
+		<td>4 people</td>
+		<td>Available</td>
+		<td>48 hours</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3 id="project-description">Project Description :</h3>
+		<p>Short Tactics Game on the the of "Roll of the Dice", developed for the GTMK Jam 2022.</p>
+		<div class="vert-layout">
+			<iframe frameborder="0" src="https://itch.io/embed/1623397?bg_color=202022&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=202022" width="552" height="167"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/qVwGHwFjUVw?si=1Dz1oLR5xUVr7rl7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>	
+		</div>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unity</li>
+		<li>Language used : C#</li>
+		<li>Platform : WebGL</li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Enemies AI</li>
+		<li>Dice rolling system</li>
+		<li>UI programming</li>
+		<li>Assets integration in engine</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+<button id="ranch rumble" class="collapsible"><strong>Redneck Ranch Rumble :</strong> <div class="type">STUDENT GAME</div> </button>
+<div class="content">
+	<div class="padder"></div>
+	<table>
+		<thead>
+		<tr>
+		<th>Role</th>
+		<th>Studio</th>
+		<th>Team Size</th>
+		<th>Status</th>
+		<th>Duration</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Lead Programmer</td>
+		<td>Student Project</td>
+		<td>2 people</td>
+		<td>Available</td>
+		<td>2 months</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3 id="project-description">Project Description :</h3>
+		<p>2 Player local party game where each player must score the highest by grabbing and throwing farm animal into a moving truck.</p>
+		<div class="vert-layout">
+			<iframe frameborder="0" src="https://itch.io/embed/423375?bg_color=202022&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=202022" width="552" height="167"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/wAa_CHVZX4E?si=_4e77QpMw7nN2yrX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>	
+		</div>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Shiva</li>
+		<li>Language used : LUA</li>
+		<li>Platform : Windows</li>
+		</ul>
+		<h3 id="notes">Notes :</h3>
+		<ul>
+		<li>Done most of the programming</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+<button id="mekastasis" class="collapsible"><strong>Mekastasis :</strong> <div class="type">DEV TOOL</div> </button>
+<div class="content">
+	<div class="padder"></div>
+		<h3 id="project-description">Project Description :</h3>
+		<p>Personal project. First foray into making custom tools in Unity.</p>
+		<p>A simple finite state machine configuration in the editor.</p>
+		<div class="vert-layout">
+			<iframe frameborder="0" src="https://itch.io/embed/446434?bg_color=202022&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=202022" width="552" height="167"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>	
+			<img src="https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png" />
+		</div>
+		<h3 id="technical-information">Technical information :</h3>
+		<ul>
+		<li>Engine : Unity</li>
+		<li>Language used : C#</li>
+		</ul>
+</div>
+<div class="padder"></div>
+
+
+
+</body>
+
+<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+	coll[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var content = this.nextElementSibling;
+		if (content.style.display === "block") {
+		content.style.display = "none";
+		} else {
+		content.style.display = "block";
+		}
+	});
+	} 
+
+	function openCity(evt, cityName) {
+		// Declare all variables
+		var i, tabcontent, tablinks;
+
+		// Get all elements with class="tabcontent" and hide them
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+
+		// Get all elements with class="tablinks" and remove the class "active"
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" tabactive", "");
+		}
+
+		// Show the current tab, and add an "active" class to the button that opened the tab
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " tabactive";
+	} 
+
+	document.getElementById("defaultOpen").click();
+
+
+</script>
+
+
+</html>
