@@ -1,327 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Gonzalez Damien - Resume</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gonzalez Damien — Game Programmer</title>
+<meta name="description" content="Portfolio and resume of Gonzalez Damien, Game Programmer.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
 <style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+/* ==========================================================
+   Tokens (from color_palette.txt)
+   ========================================================== */
+:root {
+	--bg:        #3a3a3a; /* dark gray  */
+	--panel:     #6c6f73; /* soft gray  */
+	--panel-alt: #8a8f98; /* light gray */
+	--accent:    #2f4f3e; /* pine green */
+	--text:      #f5f5f3; /* soft white */
+	--text-dim:  rgba(245, 245, 243, 0.72);
+	--line:      rgba(245, 245, 243, 0.18);
+
+	--gap: 16px;
+	--radius: 6px;
+	--max-w: 1224px;
+	--pad: clamp(18px, 3vw, 32px);
+
+	--font-head: 'Bona Nova', Georgia, serif;
+	--font-body: 'Crimson Pro', Georgia, serif;
+}
+
+/* ==========================================================
+   Base
+   ========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-
-h1 {
-	padding-bottom: 0.1em;
-	font-family: 'Bona Nova', serif;
-	/*line-height: 1.2;*/
-	/*border-bottom-width: 1px;*/
-	/*border-bottom-style: solid;*/
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-	font-family: 'Bona Nova', serif;
-	padding-bottom: 0.1em;
-	margin-bottom: 0.3em;
-	margin-top: 0.3em;
-	margin-left: none;
-}
-
-button {
-	font-family: 'Bona Nova', serif;
-}
-
-
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-table > thead > tr > th {
-	text-align: left;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 8px 16px;
-}
-
-table > tbody > tr:nth-child(even) > td,
-table > tbody > tr:nth-child(even) > th {
-	background-color: rgba(255, 255, 255, 0.045);
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light h1,
-.vscode-light hr {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	/*font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";*/
-	padding: 0;
 	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: 18px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
 	position: relative;
-	background-color: #202022;
-	color: lavender;
-	font-family: 'Crimson Pro', serif;
-	font-size: 16px;
 	overflow-y: scroll;
 }
 
+/* Background: rotated grid of dotted squares, fixed behind the page */
 body::before {
 	content: "";
 	position: fixed;
@@ -329,7 +59,9 @@ body::before {
 	left: -25%;
 	width: 150%;
 	height: 150%;
-	background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px), radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px);
+	background-image:
+		radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px),
+		radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px);
 	background-size: 10px 40px, 40px 10px;
 	background-position: -5px -20px, -20px -5px;
 	transform: rotate(13deg);
@@ -337,84 +69,358 @@ body::before {
 	pointer-events: none;
 }
 
-pre {
-	background-color: #25232c;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
+h1, h2, h3, h4 {
+	font-family: var(--font-head);
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 0.5em;
 }
 
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
+p { margin: 0 0 0.9em; }
+p:last-child { margin-bottom: 0; }
 
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
+ul { margin: 0; padding-left: 1.2em; }
+li + li { margin-top: 3px; }
 
-.emoji {
-	height: 1.4em;
+a {
+	color: var(--text);
+	text-decoration: underline;
+	text-decoration-color: var(--panel-alt);
+	text-underline-offset: 3px;
 }
+a:hover { text-decoration-color: var(--text); }
+a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
+img { max-width: 100%; height: auto; display: block; }
 
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
+/* ==========================================================
+   Layout
+   ========================================================== */
 .page {
-	page-break-after: always;
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 36px clamp(12px, 3vw, 32px) 48px;
 }
 
-</style>
-
-
-<style>
-/* Custom Stuff */
-
-:root {
-	--bg: #202022;
-	--panel-1: #262630;
-	--panel-2: #2f2f33;
-	--panel-3: #302838;
-	--accent: rgb(90, 230, 255);
-	--text-dim: rgba(255, 255, 255, 0.6);
+.grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	grid-template-areas:
+		"about     history"
+		"skills    history"
+		"portfolio portfolio";
+	gap: var(--gap);
 }
 
-.padder {
-	padding: 5px;
+.area-about     { grid-area: about; }
+.area-history   { grid-area: history; }
+.area-skills    { grid-area: skills; }
+.area-portfolio { grid-area: portfolio; margin-top: calc(var(--gap) * 2); }
+
+/* ==========================================================
+   Card
+   ========================================================== */
+.card {
+	background: var(--panel);
+	border-radius: var(--radius);
+	padding: var(--pad);
+	min-width: 0;
 }
 
-thead {
-	font-family: 'Bona Nova', serif;
-	background-color: #1c1c22;
+.card-title {
+	font-size: 1.7rem;
+	padding-bottom: 0.3em;
+	margin-bottom: 0.8em;
+	border-bottom: 3px solid var(--accent);
+	display: inline-block;
 }
 
-.vert-layout iframe {
-	display: block;
-	width: 100%;
+/* ==========================================================
+   Header (title & contacts)
+   ========================================================== */
+.hero {
 	max-width: 560px;
+	margin: 0 auto calc(var(--gap) * 1.5);
+	text-align: center;
+}
+
+.hero h1 {
+	font-size: clamp(2rem, 5vw, 2.8rem);
+	margin-bottom: 0.1em;
+}
+
+.hero .pronouns {
+	color: var(--text-dim);
+	font-size: 0.95rem;
+}
+
+.hero .role {
+	font-size: 1.35rem;
+	font-weight: 400;
+	margin: 0.4em 0 0.6em;
+}
+
+.contacts {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px 18px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.contacts li + li { margin-top: 0; }
+
+/* ==========================================================
+   Work history timeline
+   ========================================================== */
+.timeline {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 48px 28px; /* bottom padding: line runs past last entry */
+	position: relative;
+}
+
+.timeline::before {
+	content: "";
+	position: absolute;
+	left: 6px;
+	top: 8px;
+	bottom: 0;
+	width: 2px;
+	background: var(--text);
+}
+
+.timeline li {
+	position: relative;
+	margin: 0 0 26px;
+}
+.timeline li:last-child { margin-bottom: 0; }
+
+.timeline li::before {
+	content: "";
+	position: absolute;
+	left: -28px;
+	top: 6px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--text);
+	border: 3px solid var(--accent);
+}
+
+.tl-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0 12px;
+}
+
+.tl-head h3 {
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+.tl-dates {
+	color: var(--text-dim);
+	font-size: 0.9rem;
+	white-space: nowrap;
+}
+
+.tl-role {
+	font-style: italic;
+	margin: 2px 0 4px;
+}
+
+.tl-desc {
+	color: var(--text-dim);
+	margin: 0;
+}
+
+/* ==========================================================
+   Skills
+   ========================================================== */
+.skills-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+}
+
+.skills-table th,
+.skills-table td {
+	text-align: left;
+	vertical-align: top;
+	padding: 7px 10px;
+}
+
+.skills-table thead th {
+	font-family: var(--font-head);
+	background: var(--accent);
+	font-weight: 400;
+}
+
+.skills-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.08); }
+.skills-table tbody th { font-weight: 700; white-space: nowrap; }
+.skills-table .dim { color: var(--text-dim); }
+
+.languages-spoken { margin-top: 20px; }
+.languages-spoken h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.languages-spoken ul { list-style: none; padding: 0; }
+
+/* ==========================================================
+   Portfolio
+   ========================================================== */
+.project {
+	padding: var(--pad) 0;
+	border-top: 1px solid var(--line);
+}
+.project:first-of-type { border-top: 0; padding-top: 0; }
+
+.project-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 6px 14px;
+	margin-bottom: 10px;
+}
+
+.project-header h3 {
+	font-size: 1.6rem;
+	margin: 0;
+}
+
+.project-year {
+	color: var(--text-dim);
+	font-weight: 400;
+	font-size: 0.75em;
+}
+
+.tag {
+	display: inline-block;
+	font-family: var(--font-head);
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: var(--panel-alt);
+	color: var(--bg);
+	font-weight: 700;
+}
+
+.tag-featured {
+	background: var(--accent);
+	color: var(--text);
+}
+
+.meta-strip {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0;
+	margin: 0 0 16px;
+	padding: 0;
+	background: rgba(0, 0, 0, 0.12);
+	border-radius: var(--radius);
+	overflow: hidden;
+}
+
+.meta-strip div {
+	flex: 1 1 140px;
+	padding: 8px 14px;
+}
+
+.meta-strip dt {
+	font-family: var(--font-head);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--text-dim);
+}
+
+.meta-strip dd { margin: 0; }
+
+.project-lead {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.media {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 12px;
+	margin: 18px 0;
+}
+
+.media img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: var(--radius);
+}
+
+.video {
+	width: 100%;
 	aspect-ratio: 16 / 9;
 	height: auto;
+	border: 0;
+	border-radius: var(--radius);
+	display: block;
+	background: #000;
 }
 
+.project-details {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+	gap: var(--gap) calc(var(--gap) * 2);
+}
+
+.project-details h4 {
+	font-size: 1.05rem;
+	margin-bottom: 6px;
+}
+
+/* Other projects */
+.subsection-title {
+	font-size: 1.4rem;
+	margin: calc(var(--pad) * 1.2) 0 var(--gap);
+	padding-top: var(--pad);
+	border-top: 1px solid var(--line);
+}
+
+.compact-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--gap);
+}
+
+.project-compact {
+	background: rgba(0, 0, 0, 0.12);
+	border-radius: var(--radius);
+	padding: 20px;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.project-compact .project-header { margin: 0; justify-content: space-between; }
+.project-compact .project-header h4 { font-size: 1.15rem; margin: 0; }
+.project-compact p { margin: 0; }
+
+.compact-meta {
+	color: var(--text-dim);
+	font-size: 0.9rem;
+}
+
+/* itch.io embeds: fixed 552x167 widget scaled to container width via JS */
 .itch-embed-wrap {
 	position: relative;
 	width: 100%;
 	max-width: 552px;
 	aspect-ratio: 552 / 167;
 	overflow: hidden;
+	border-radius: var(--radius);
 }
 
 .itch-embed-wrap .itch-embed {
@@ -427,734 +433,405 @@ thead {
 	transform-origin: top left;
 }
 
-a:link {
-	color: rgb(75, 175, 241);
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 1000px) {
+	.compact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-a:visited {
-	color: rgb(117, 148, 204);
+@media (max-width: 900px) {
+	.grid {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-areas:
+			"about"
+			"history"
+			"skills"
+			"portfolio";
+	}
+	.area-portfolio { margin-top: 0; }
+	.project-details { grid-template-columns: minmax(0, 1fr); }
 }
 
-.type {
-	text-align: end;
-	position: absolute;
-	right : 86px;
-	transform:  translateY(-70%);
-	font-size: 54px;
-	line-height: 100%;
-	color: rgba(255, 255, 255, 0.085);
-	white-space: nowrap;
+@media (max-width: 640px) {
+	body { font-size: 17px; }
+	.compact-grid { grid-template-columns: minmax(0, 1fr); }
+	.skills-table { font-size: 0.85rem; }
+	.skills-table th, .skills-table td { padding: 6px; }
 }
-
-.paragraph {
-	white-space: pre-line;
-	line-height: 1.5;
-	margin-left: 10px;
-	padding-left: 4px;
-}
-
-.columns {
-	display: flex;
-}
-
-.padding_left {
-	padding-left: 20px;
-}
-
-/* Page shell
--------------------------------------------------- */
-:root {
-	--content-width: 1224px;
-}
-
-.page-wrap {
-	width: 100%;
-}
-
-/* Full-bleed bands (section, project-block, ...) span the viewport edge to
-   edge on their own; .container is nested inside them to cap and center the
-   actual content, with fluid side padding that never lets it hug the edge. */
-.container {
-	max-width: var(--content-width);
-	margin: 0 auto;
-	padding-left: clamp(24px, 6vw, 72px);
-	padding-right: clamp(24px, 6vw, 72px);
-	box-sizing: border-box;
-}
-
-.hero {
-	text-align: center;
-	padding: 48px 12px 24px;
-}
-
-.hero .pronouns {
-	color: var(--text-dim);
-	margin-bottom: 8px;
-}
-
-.hero .role {
-	color: var(--accent);
-}
-
-.hero .mail-link {
-	display: inline-block;
-	margin-top: 8px;
-	color: var(--accent);
-}
-
-.section {
-	padding: 36px 0;
-	margin-bottom: 28px;
-}
-
-.section-title {
-	margin-bottom: 0.6em;
-}
-
-/* About / History bands: full-bleed, flat panels
--------------------------------------------------- */
-.section-about,
-.section-history {
-	background-color: var(--panel-1);
-}
-
-.history-entry {
-	margin-bottom: 20px;
-}
-
-.history-entry:last-child {
-	margin-bottom: 0;
-}
-
-.history-entry h3 {
-	margin-bottom: 0.1em;
-}
-
-.history-dates {
-	color: var(--text-dim);
-	font-size: 0.7em;
-	font-weight: normal;
-	margin-left: 10px;
-}
-
-.history-role {
-	color: var(--accent);
-	padding-left: 20px;
-	margin-bottom: 4px;
-}
-
-/* Skills: centered narrower card
--------------------------------------------------- */
-.section-skills {
-	display: flex;
-	justify-content: center;
-	padding: 36px 12px;
-}
-
-.skills-card {
-	--card-pad-x: 40px;
-	background-color: var(--panel-3);
-	padding: 32px var(--card-pad-x);
-	width: 100%;
-	max-width: 620px;
-}
-
-.skills-card table {
-	width: calc(100% + var(--card-pad-x) * 2);
-	margin-left: calc(var(--card-pad-x) * -1);
-	margin-right: calc(var(--card-pad-x) * -1);
-}
-
-.languages-spoken {
-	margin-top: 24px;
-}
-
-.languages-spoken ul {
-	margin-top: 8px;
-	padding-left: 20px;
-}
-
-/* Portfolio: stacked full-width project blocks
--------------------------------------------------- */
-.project-block {
-	background-color: var(--panel-2);
-	padding: 28px 0;
-	margin-bottom: 20px;
-	position: relative;
-}
-
-.project-block:last-child {
-	margin-bottom: 0;
-}
-
-.project-header {
-	position: relative;
-	margin-bottom: 12px;
-}
-
-.project-header h2 {
-	margin: 0;
-}
-
-.project-year {
-	color: var(--text-dim);
-	font-weight: normal;
-	font-size: 0.7em;
-}
-
-.project-block table {
-	width: 100%;
-	margin-bottom: 8px;
-}
-
-.project-media {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 12px;
-	margin: 16px 0;
-}
-
-.project-media img {
-	max-width: 30%;
-}
-
-/* Other projects: compact secondary cards
--------------------------------------------------- */
-.section-other {
-	background-color: transparent;
-	padding: 24px 0;
-}
-
-.compact-grid {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 36px;
-}
-
-.project-compact {
-	position: relative;
-	box-sizing: border-box;
-	min-width: 0;
-	background-color: var(--panel-1);
-	padding: 28px 32px;
-}
-
-.project-compact img {
-	max-width: 100%;
-	height: auto;
-}
-
-.project-compact h3 {
-	margin-bottom: 4px;
-	padding-right: 90px;
-	font-size: 1.15em;
-	line-height: 1.3;
-}
-
-.project-compact .type {
-	position: absolute;
-	top: 28px;
-	right: 32px;
-	transform: none;
-	font-size: 17px;
-}
-
-.project-compact .meta {
-	color: var(--text-dim);
-	font-size: 0.85em;
-	line-height: 1.4;
-	margin-top: 2px;
-	margin-bottom: 16px;
-}
-
-.project-compact p {
-	margin: 12px 0;
-	line-height: 1.55;
-}
-
-.project-compact .vert-layout {
-	margin: 18px 0;
-}
-
-.project-compact ul {
-	padding-left: 20px;
-	margin: 16px 0 0;
-	line-height: 1.6;
-}
-
-.project-compact ul li + li {
-	margin-top: 4px;
-}
-
-/* Category backgrounds (about, history, skills, portfolio, other) */
-.category-bg {
-	position: relative;
-	z-index: 0;
-}
-
-.category-bg::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg%3E%3Cpath fill='transparent' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='transparent' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3Cpath fill='transparent' d='M478.4 581c3.2 0.8 6.4 1.7 9.5 2.5c196.2 52.5 388.7 133.5 593.5 176.6c174.2 36.6 349.5 29.2 518.6-10.2V0H0v574.9c52.3-17.6 106.5-27.7 161.1-30.9C268.4 537.4 375.7 554.2 478.4 581z'/%3E%3Cpath fill='transparent' d='M0 0v429.4c55.6-18.4 113.5-27.3 171.4-27.7c102.8-0.8 203.2 22.7 299.3 54.5c3 1 5.9 2 8.9 3c183.6 62 365.7 146.1 562.4 192.1c186.7 43.7 376.3 34.4 557.9-12.6V0H0z'/%3E%3Cpath fill='%2336363E' d='M181.8 259.4c98.2 6 191.9 35.2 281.3 72.1c2.8 1.1 5.5 2.3 8.3 3.4c171 71.6 342.7 158.5 531.3 207.7c198.8 51.8 403.4 40.8 597.3-14.8V0H0v283.2C59 263.6 120.6 255.7 181.8 259.4z'/%3E%3Cpath fill='%23313138' d='M1600 0H0v136.3c62.3-20.9 127.7-27.5 192.2-19.2c93.6 12.1 180.5 47.7 263.3 89.6c2.6 1.3 5.1 2.6 7.7 3.9c158.4 81.1 319.7 170.9 500.3 223.2c210.5 61 430.8 49 636.6-16.6V0z'/%3E%3Cpath fill='%232d2d33' d='M454.9 86.3C600.7 177 751.6 269.3 924.1 325c208.6 67.4 431.3 60.8 637.9-5.3c12.8-4.1 25.4-8.4 38.1-12.9V0H288.1c56 21.3 108.7 50.6 159.7 82C450.2 83.4 452.5 84.9 454.9 86.3z'/%3E%3Cpath fill='%2329292d' d='M1600 0H498c118.1 85.8 243.5 164.5 386.8 216.2c191.8 69.2 400 74.7 595 21.1c40.8-11.2 81.1-25.2 120.3-41.7V0z'/%3E%3Cpath fill='%23242427' d='M1397.5 154.8c47.2-10.6 93.6-25.3 138.6-43.8c21.7-8.9 43-18.8 63.9-29.5V0H643.4c62.9 41.7 129.7 78.2 202.1 107.4C1020.4 178.1 1214.2 196.1 1397.5 154.8z'/%3E%3Cpath fill='%23202022' d='M1315.3 72.4c75.3-12.6 148.9-37.1 216.8-72.4h-723C966.8 71 1144.7 101 1315.3 72.4z'/%3E%3C/g%3E%3C/svg%3E");
-	background-attachment: scroll;
-	background-repeat: no-repeat;
-	background-position: top center;
-	background-size: 100vw 50vw;
-	z-index: -1;
-	pointer-events: none;
-}
-
 </style>
-
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Slabo+13px&display=swap" rel="stylesheet">
-
-
 </head>
+
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
+<div class="page">
 
-<div class="page-wrap">
+	<!-- ===================== TITLE & CONTACTS ===================== -->
+	<header class="hero card" id="me">
+		<h1>Gonzalez Damien</h1>
+		<div class="pronouns">he / him</div>
+		<h2 class="role">Game Programmer</h2>
+		<ul class="contacts">
+			<li><a href="mailto:gonzalez.damien.kiok@gmail.com">gonzalez.damien.kiok@gmail.com</a></li>
+			<li><a href="https://kiiok.itch.io" target="_blank" rel="noopener noreferrer">kiiok.itch.io</a></li>
+		</ul>
+	</header>
 
-<header class="hero">
-	<h1 id="me">Gonzalez Damien</h1>
-	<div class="pronouns">he / him</div>
-	<h2 class="role">Game Programmer</h2>
-	<a href="mailto:gonzalez.damien.kiok@gmail.com" class="mail-link">gonzalez.damien.kiok@gmail.com</a>
-</header>
+	<main class="grid">
 
-<section id="aboutme" class="section section-about category-bg">
-	<div class="container">
-		<h1 class="section-title">About me</h1>
-		<div class="paragraph">	I've always had a keen interest in video games and the work that goes into them for as long as I can remember.
+		<!-- ===================== ABOUT ME ===================== -->
+		<section id="about" class="card area-about">
+			<h2 class="card-title">About me</h2>
+			<p>I've always had a keen interest in video games and the work that goes into them for as long as I can remember.
 			Today this curiosity is stronger than ever and every day drives my passion for my work.
-			I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great experiences to people.
-			I strongly believe making video games is a team effort, and I hope to be able to bring as much to my peers as they could bring to me.
+			I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great experiences to people.</p>
+			<p>I strongly believe making video games is a team effort, and I hope to be able to bring as much to my peers as they could bring to me.
 			Throughout the years, I have acquired various skills on many tools, ranging from programming language, to engines, to 3D and 2D software.
-			I'm very passionate about my work in games, and I enjoy working in many different fields of the trade, albeit programming remains my favorite domain to explore.
+			I'm very passionate about my work in games, and I enjoy working in many different fields of the trade, albeit programming remains my favorite domain to explore.</p>
+			<p>My favorite game genres include Action RPGs, Strategy RPGs, Sandbox survivals and Tactics games.
+			During my free time, I enjoy learning about new things, reading mangas and fantasy novels, playing D&amp;D, or trying out my hand at art.</p>
+		</section>
 
+		<!-- ===================== WORK HISTORY ===================== -->
+		<section id="history" class="card area-history">
+			<h2 class="card-title">Work history</h2>
+			<ol class="timeline">
+				<li>
+					<div class="tl-head"><h3>Cliffdivers Project</h3><span class="tl-dates">2023 – 2024</span></div>
+					<div class="tl-role">Principal Programmer</div>
+					<p class="tl-desc">Worked on a game project targeting the PC platform.</p>
+				</li>
+				<li>
+					<div class="tl-head"><h3>Aiko Creative</h3><span class="tl-dates">2020 – 2022</span></div>
+					<div class="tl-role">Principal Programmer</div>
+					<p class="tl-desc">Shipped a VR game, a Mobile game, and various B2B games and applications.</p>
+				</li>
+				<li>
+					<div class="tl-head"><h3>Studio Muybridge</h3><span class="tl-dates">2019 – 2020</span></div>
+					<div class="tl-role">Programmer</div>
+					<p class="tl-desc">Worked with hardware interfacing for a racing simulator, and worked on various B2B applications and games.</p>
+				</li>
+				<li>
+					<div class="tl-head"><h3>ETPA School of Game Design</h3><span class="tl-dates">2016 – 2019</span></div>
+					<div class="tl-role">Student</div>
+				</li>
+			</ol>
+		</section>
 
-			My favorites game genres includes Action RPGs, Strategy RPGs, Sandbox survivals and Tactics games.
-			During my free time, I enjoy learning about new things, reading mangas and fantasy novels, playing D&D, or trying out my hand at art.
-		</div>
-	</div>
-</section>
-
-<section id="history" class="section section-history category-bg">
-	<div class="container">
-	<h1 class="section-title">Work History</h1>
-	<div class="history-list">
-		<div class="history-entry">
-			<h3>Cliffdivers Project <span class="history-dates">2023 - 2024</span></h3>
-			<div class="history-role">Principal Programmer</div>
-			<div class="paragraph">Worked on a game project targeting the PC platform</div>
-		</div>
-
-		<div class="history-entry">
-			<h3>Aiko Creative <span class="history-dates">2020 - 2022</span></h3>
-			<div class="history-role">Principal Programmer</div>
-			<div class="paragraph">Shipped a VR game, a Mobile game, and various B2B games and applications</div>
-		</div>
-
-		<div class="history-entry">
-			<h3>Studio Muybridge <span class="history-dates">2019 - 2020</span></h3>
-			<div class="history-role">Programmer</div>
-			<div class="paragraph">Worked with hardware interfacing for a racing simulator, and worked on various B2B applications and games</div>
-		</div>
-
-		<div class="history-entry">
-			<h3>ETPA School of Game Design <span class="history-dates">2016 - 2019</span></h3>
-			<div class="history-role">Student</div>
-		</div>
-	</div>
-	</div>
-</section>
-
-<section id="skills" class="section section-skills">
-	<div class="skills-card category-bg">
-		<h1 class="section-title">Skills</h1>
-		<table>
-			<thead>
-				<tr>
-				<th></th>
-				<th>Worked with :</th>
-				<th>Experimented with :</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<td><b>Engines</b></td>
-				<td>Unity , Unreal , Godot</td>
-				<td></td>
-				</tr>
-				<tr>
-				<td><b>Libraries</b></td>
-				<td>Flecs, Enet</td>
-				<td>Raylib , MonoGame , LibGDX</td>
-				</tr>
-				<tr>
-				<td><b>Languages</b></td>
-				<td>C# , C++ , LUA , JS</td>
-				<td>Odin, Nim, Haxe, Python</td>
-				</tr>
-				<tr>
-				<td><b>Software</b></td>
-				<td>Blender , 3DsMax , Substance Designer , Photoshop</td>
-				<td></td>
-				</tr>
-				<tr>
-					<td><b>Source Control</b></td>
-					<td>Git , PlasticSCM</td>
-					<td></td>
-					</tr>
-			</tbody>
+		<!-- ===================== SKILLS ===================== -->
+		<section id="skills" class="card area-skills">
+			<h2 class="card-title">Skills</h2>
+			<table class="skills-table">
+				<thead>
+					<tr><th scope="col"></th><th scope="col">Worked with</th><th scope="col">Experimented with</th></tr>
+				</thead>
+				<tbody>
+					<tr><th scope="row">Engines</th><td>Unity, Unreal, Godot</td><td class="dim"></td></tr>
+					<tr><th scope="row">Libraries</th><td>Flecs, Enet</td><td class="dim">Raylib, MonoGame, LibGDX</td></tr>
+					<tr><th scope="row">Languages</th><td>C#, C++, LUA, JS</td><td class="dim">Odin, Nim, Haxe, Python</td></tr>
+					<tr><th scope="row">Software</th><td>Blender, 3DsMax, Substance Designer, Photoshop</td><td class="dim"></td></tr>
+					<tr><th scope="row">Source Control</th><td>Git, PlasticSCM</td><td class="dim"></td></tr>
+				</tbody>
 			</table>
 
-		<div class="languages-spoken">
-			<b>Languages spoken :</b>
-			<ul>
-				<li> 🇫🇷 French - Native</li>
-				<li> 🇬🇧 English - Fluent</li>
-				<li> 🇪🇸 Spanish - Basics</li>
-			</ul>
-		</div>
-	</div>
-</section>
-
-<section id="portfolio" class="section section-portfolio">
-	<div class="container">
-	<h1 class="section-title" id="portfolio-title">Projects portfolio</h1>
-	</div>
-
-	<article id="cliffdivers-2023" class="project-block category-bg">
-	<div class="container">
-		<div class="project-header">
-			<h2><strong>Cliffdivers <span class="project-year">( 2023 )</span></strong></h2>
-			<div class="type">PC GAME</div>
-		</div>
-		<table>
-			<thead>
-			<tr>
-			<th>Role</th>
-			<th>Studio</th>
-			<th>Team Size</th>
-			<th>Status</th>
-			<th>Duration</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>Lead Programmer</td>
-			<td><i>Unamed</i></td>
-			<td>4 people</td>
-			<td>Unreleased</td>
-			<td>12 months</td>
-			</tr>
-			</tbody>
-		</table>
-
-		<h3 id="project-description">Project description</h3>
-		<p>A procedural multiplayer survival adventure game.</p>
-		<div class="paragraph">My latest and biggest project to date. I worked full time on this project for all of 2023, with the end goal of co-founding a studio.
-			I left the team at the beginning of 2024 for personal reasons, but the project was a lot of fun to work on and I learned a lot while working on it.
-			I was the sole programmer on the team, and handled pretty much every technical aspect of it.
-			The game features an open, vertical, procedural world explorable in multiplayer. The players have many tools available to help them traverse the atypical world.
-			The goal of the game is to go down further and further down in an unexplored abyss and uncover its mysteries and history.
-			At the time of me leaving, most of the underlying engine was functional (world streaming, networking) and gameplay mechanics where starting to get implemented.
-			The game uses a data-driven approach to a lot of things : Entity declaration, Items declaration, Character controller configuration, among other things.
-			This was done to help development time and later on help bring modding support to the game.
-		</div>
-
-		<div class="project-media">
-			<img src="https://i.imgur.com/0nxpdVD.jpeg"/>
-			<img src="https://i.imgur.com/Ds65GJc.jpeg"/>
-			<img src="https://i.imgur.com/aQVLQDP.jpeg"/>
-		</div>
-
-		<div class="vert-layout">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/F-_Bv38gP9U?si=c_valaNZWnQkI0Yc" title="video_cliffdivers_showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			<div class="padder"></div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/5X1Ran8f5z4?si=M8iIkVL8AYPKIZX_" title="video_cliffdivers_one_year" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
-
-		<h3 id="technical-information">Technical information :</h3>
-		<ul>
-		<li>Engine : <b>Godot</b></li>
-		<li>Responsible for the entirety of the programming</li>
-		<li>Languages used : C#, LUA, C++, GDScript</li>
-		</ul>
-		<h3 id="notes">Notes :</h3>
-		<ul>
-		<li>Integrated <a href="https://www.flecs.dev/flecs/" target="_blank" rel="noopener noreferrer">Flecs</a> on top of Godot engine ( ECS )</li>
-		<li>Built a network entity replication system on top of <a href="http://enet.bespin.org/" target="_blank" rel="noopener noreferrer">Enet</a> ( creation, deletion, state change)</li>
-		<li>Built a custom renderer system to render entities efficiently</li>
-		<li>Used a data-driven approach to declare entities, items, crafting recipes, using the LUA scripting langage</li>
-		<li>Built a basic network interest manager and world streaming system</li>
-		<li>Built a custom entity spawning system on top of <a href="https://github.com/Zylann/godot_voxel" target="_blank" rel="noopener noreferrer">VoxelTools</a></li>
-		<li>Built an extensive state machine system for the character controller</li>
-		<li>Implemented the character controller and various gameplay tools</li>
-		<li>UI programming</li>
-		</ul>
-	</div>
-	</article>
-
-	<article id="invoiders--2020---2021" class="project-block category-bg">
-	<div class="container">
-		<div class="project-header">
-			<h2><strong>Invoiders <span class="project-year">( 2020 - 2021 )</span></strong></h2>
-			<div class="type">VR GAME</div>
-		</div>
-		<table>
-			<thead>
-			<tr>
-			<th>Role</th>
-			<th>Studio</th>
-			<th>Team Size</th>
-			<th>Status</th>
-			<th>Duration</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>Lead Programmer</td>
-			<td>Aiko Creative</td>
-			<td>8 people</td>
-			<td>Available</td>
-			<td>12 months</td>
-			</tr>
-			</tbody>
-			</table>
-			<h3 id="project-description">Project Description :</h3>
-			<div class="paragraph">A virtual reality Tower Defense / Shooter for the <i>Meta Quest 1 / 2</i>, and <i>Oculus Rift S</i>.
-				The player plays as a spance prisoner, sent to fight hordes of enemies invading various planets and defend the settlements.
-				The player has access to an arsenal of weapons with various upgrades and can call offensive towers from orbit onto the battlefield.
+			<div class="languages-spoken">
+				<h3>Languages spoken</h3>
+				<ul>
+					<li>🇫🇷 French — Native</li>
+					<li>🇬🇧 English — Fluent</li>
+					<li>🇪🇸 Spanish — Basics</li>
+				</ul>
 			</div>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/0nrZXLiCtr4?si=Kqkfrvz4mJB68U0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			<h3 id="technical-information">Technical information :</h3>
-			<ul>
-			<li>Engine : <b>Unity</b></li>
-			<li>Language used : C#</li>
-			<li>Platforms : <a href="https://www.meta.com/fr-fr/experiences/3807370422692379/">Android</a>, <a href="https://www.meta.com/fr-fr/experiences/pcvr/4434572513250824/">PC</a></li>
-			</ul>
-			<h3 id="notes">Notes :</h3>
-			<ul>
-			<li>Responsible for programming the character system in VR</li>
-			<li>Developed various weapons useable in VR ( Bow, Revolver, Machine Gun, Unreleased weapons)</li>
-			<li>Built custom tools to help with enemy pathing and wave management for designers</li>
-			<li>Developped the towers various interactions</li>
-			<li>VR UI programming</li>
-			</ul>
-	</div>
-	</article>
+		</section>
 
-	<article id="cliffdivers-prototype-2021" class="project-block category-bg">
-	<div class="container">
-		<div class="project-header">
-			<h2><strong>Cliffdivers prototypes <span class="project-year">( 2021 )</span></strong></h2>
-			<div class="type">GAME PROTOTYPE</div>
-		</div>
-		<table>
-			<thead>
-			<tr>
-			<th>Role</th>
-			<th>Studio</th>
-			<th>Team Size</th>
-			<th>Status</th>
-			<th>Duration</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>Lead Programmer</td>
-			<td><i>Unamed</i></td>
-			<td>4 people</td>
-			<td>Internal</td>
-			<td>8 months</td>
-			</tr>
-			</tbody>
-			</table>
+		<!-- ===================== PORTFOLIO / SHOWCASE ===================== -->
+		<section id="portfolio" class="card area-portfolio">
+			<h2 class="card-title">Portfolio</h2>
 
-			<h3 id="project-description">Project description :</h3>
-			<p>Various prototypes for Cliffdivers before entering production. Worked on during free time.</p>
+			<!-- Cliffdivers -->
+			<article class="project" id="cliffdivers">
+				<header class="project-header">
+					<h3>Cliffdivers <span class="project-year">(2023)</span></h3>
+					<span class="tag">PC Game</span>
+					<span class="tag tag-featured">Featured</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
+					<div><dt>Studio</dt><dd><i>Unnamed</i></dd></div>
+					<div><dt>Team size</dt><dd>4 people</dd></div>
+					<div><dt>Status</dt><dd>Unreleased</dd></div>
+					<div><dt>Duration</dt><dd>12 months</dd></div>
+				</dl>
+				<p class="project-lead">A procedural multiplayer survival adventure game.</p>
+				<p>My latest and biggest project to date. I worked full time on this project for all of 2023, with the end goal of co-founding a studio.
+				I left the team at the beginning of 2024 for personal reasons, but the project was a lot of fun to work on and I learned a lot while working on it.
+				I was the sole programmer on the team, and handled pretty much every technical aspect of it.</p>
+				<p>The game features an open, vertical, procedural world explorable in multiplayer. The players have many tools available to help them traverse the atypical world.
+				The goal of the game is to go down further and further down in an unexplored abyss and uncover its mysteries and history.</p>
+				<p>At the time of me leaving, most of the underlying engine was functional (world streaming, networking) and gameplay mechanics were starting to get implemented.
+				The game uses a data-driven approach to a lot of things: Entity declaration, Items declaration, Character controller configuration, among other things.
+				This was done to help development time and later on help bring modding support to the game.</p>
 
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/QQgfagbYPiA?si=-3GFXxj1MzUmcuUd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/d4EYT-giCxo?si=YIo4UBATGMVQuSq2" title="trailer proto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			<h3 id="technical-information">Technical information :</h3>
-			<ul>
-			<li>Engine : <b>Unreal Engine</b> 4 and 5</li>
-			<li>Languages used : C++, Blueprints</li>
-			</ul>
-			<h3 id="notes">Notes :</h3>
-			<ul>
-			<li>Prototyped a character controller, network replicated using Unreal Network System</li>
-			<li>C++ / Blueprint Hybrid state machine</li>
-			<li>Setup of a custom entity renderer based on <a href="https://www.flecs.dev/flecs/" target="_blank" rel="noopener noreferrer">Flecs</a></li>
-			</ul>
-	</div>
-	</article>
-
-	<article id="aenigma-venatorum--2021---2022" class="project-block category-bg">
-	<div class="container">
-		<div class="project-header">
-			<h2><strong>Aenigma Venatorum <span class="project-year">( 2021 - 2022 )</span></strong></h2>
-			<div class="type">MOBILE GAME</div>
-		</div>
-		<table>
-			<thead>
-			<tr>
-			<th>Role</th>
-			<th>Studio</th>
-			<th>Team Size</th>
-			<th>Status</th>
-			<th>Duration</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>Lead Programmer</td>
-			<td>Aiko Creative</td>
-			<td>6 people</td>
-			<td>Released</td>
-			<td>12 months</td>
-			</tr>
-			</tbody>
-			</table>
-			<h3 id="project-description">Project Description :</h3>
-			<p>3D Puzzle Mobile game. Recreation of existing physical puzzles, at the demand of <a href="https://nkd-puzzle.com/blog/" target="_blank" rel="noopener noreferrer">NKD Puzzle</a></p>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/WIWIGfebQOE?si=cBiK2dv7hJD0IKIM" title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-			<h3 id="technical-information">Technical information :</h3>
-			<ul>
-			<li>Engine : <b>Unity</b></li>
-			<li>Language used : C#</li>
-			<li>Platforms : <a href="https://play.google.com/store/apps/details?id=com.NKDPuzzle.AenigmaVenatorumFull&amp;hl=fr&amp;gl=US" target="_blank" rel="noopener noreferrer">Android</a>, <a href="https://apps.apple.com/fr/app/aenigma-venatorum-integral/id1628758670" target="_blank" rel="noopener noreferrer">IOS</a></li>
-			</ul>
-			<h3 id="notes">Notes :</h3>
-			<ul>
-			<li>Recreated physical puzzles virtually</li>
-			<li>UI programming</li>
-			<li>Save system for puzzle progression</li>
-			<li>Shaders Programming</li>
-			<li>Virtual Drawing Pad with save system</li>
-			</ul>
-	</div>
-	</article>
-
-	<article id="aeroport-de-paris-vr--2019" class="project-block category-bg">
-	<div class="container">
-		<div class="project-header">
-			<h2><strong>Aeroport de Paris VR <span class="project-year">( 2019 )</span></strong></h2>
-			<div class="type">TRAINING TOOL</div>
-		</div>
-		<table>
-			<thead>
-			<tr>
-			<th>Role</th>
-			<th>Studio</th>
-			<th>Team Size</th>
-			<th>Status</th>
-			<th>Duration</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>Lead Programmer</td>
-			<td>Aiko Creative</td>
-			<td>4 people</td>
-			<td>Shipped</td>
-			<td>8 months</td>
-			</tr>
-			</tbody>
-			</table>
-			<h3 id="project-description">Project Description :</h3>
-			<p>Virtual Reality Training tool for the Paris Charles de Gaule Airport.</p>
-			<p>Supports up to 6 trainees in local multiplayer with full body tracking using the Vive Pro.</p>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/S7qoEEaUn5I?si=GSJll8_AFX-lsd0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-			<h3 id="technical-information">Technical information :</h3>
-			<ul>
-			<li>Engine : <b>Unreal Engine 4</b></li>
-			<li>Languages used : Blueprint</li>
-			</ul>
-			<h3 id="notes">Notes :</h3>
-			<ul>
-			<li>Responsible for programming the character system in VR</li>
-			<li>Developped a full body tracking system</li>
-			<li>Local multiplayer with full body tracking animations replication</li>
-			<li>External control from a control panel for trainer</li>
-			</ul>
-	</div>
-	</article>
-</section>
-
-<section id="other-projects" class="section section-other category-bg">
-	<div class="container">
-	<h2 class="section-title" id="Other">Other Projects</h2>
-
-	<div class="compact-grid">
-		<article id="don-random" class="project-compact">
-			<h3><strong>Don Random</strong></h3>
-			<div class="type">JAM GAME</div>
-			<div class="meta">Personal · 4 people · GMTK Jam 2022 · 48 hours</div>
-			<p>Short Tactics Game on the theme of "Roll of the Dice", developed for the GMTK Jam 2022.</p>
-			<div class="vert-layout">
-				<div class="itch-embed-wrap">
-					<iframe class="itch-embed" frameborder="0" src="https://itch.io/embed/1623397?bg_color=2f2f33&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=2f2f33"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
+				<div class="media">
+					<img src="https://i.imgur.com/0nxpdVD.jpeg" alt="Cliffdivers screenshot" loading="lazy">
+					<img src="https://i.imgur.com/Ds65GJc.jpeg" alt="Cliffdivers screenshot" loading="lazy">
+					<img src="https://i.imgur.com/aQVLQDP.jpeg" alt="Cliffdivers screenshot" loading="lazy">
 				</div>
-			</div>
-			<ul>
-			<li>Engine : <b>Unity</b> (C#) · WebGL</li>
-			<li>Enemies AI, dice rolling system, UI programming, assets integration</li>
-			</ul>
-		</article>
-
-		<article id="ranch-rumble" class="project-compact">
-			<h3><strong>Redneck Ranch Rumble</strong></h3>
-			<div class="type">STUDENT GAME</div>
-			<div class="meta">Student Project · 2 people · 2 months</div>
-			<p>2 Player local party game where each player must score the highest by grabbing and throwing farm animals into a moving truck.</p>
-			<div class="vert-layout">
-				<div class="itch-embed-wrap">
-					<iframe class="itch-embed" frameborder="0" src="https://itch.io/embed/423375?bg_color=2f2f33&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=2f2f33"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/F-_Bv38gP9U" title="Cliffdivers showcase" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe class="video" src="https://www.youtube.com/embed/5X1Ran8f5z4" title="Cliffdivers one year progress" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				</div>
-			</div>
-			<ul>
-			<li>Engine : <b>Shiva</b> (LUA) · Windows</li>
-			<li>Done most of the programming</li>
-			</ul>
-		</article>
 
-		<article id="mekastasis" class="project-compact">
-			<h3><strong>Mekastasis</strong></h3>
-			<div class="type">DEV TOOL</div>
-			<div class="meta">Personal project</div>
-			<p>First foray into making custom tools in Unity. A simple finite state machine configuration in the editor.</p>
-			<div class="vert-layout">
-				<div class="itch-embed-wrap">
-					<iframe class="itch-embed" frameborder="0" src="https://itch.io/embed/446434?bg_color=2f2f33&amp;fg_color=e6e6f1&amp;link_color=4f65d7&amp;border_color=2f2f33"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Godot</b></li>
+							<li>Responsible for the entirety of the programming</li>
+							<li>Languages used: C#, LUA, C++, GDScript</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Integrated <a href="https://www.flecs.dev/flecs/" target="_blank" rel="noopener noreferrer">Flecs</a> on top of Godot engine (ECS)</li>
+							<li>Built a network entity replication system on top of <a href="http://enet.bespin.org/" target="_blank" rel="noopener noreferrer">Enet</a> (creation, deletion, state change)</li>
+							<li>Built a custom renderer system to render entities efficiently</li>
+							<li>Used a data-driven approach to declare entities, items, crafting recipes, using the LUA scripting language</li>
+							<li>Built a basic network interest manager and world streaming system</li>
+							<li>Built a custom entity spawning system on top of <a href="https://github.com/Zylann/godot_voxel" target="_blank" rel="noopener noreferrer">VoxelTools</a></li>
+							<li>Built an extensive state machine system for the character controller</li>
+							<li>Implemented the character controller and various gameplay tools</li>
+							<li>UI programming</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-			<ul>
-			<li>Engine : <b>Unity</b> (C#)</li>
-			</ul>
-		</article>
-	</div>
-	</div>
-</section>
+			</article>
 
+			<!-- Invoiders -->
+			<article class="project" id="invoiders">
+				<header class="project-header">
+					<h3>Invoiders <span class="project-year">(2020 – 2021)</span></h3>
+					<span class="tag">VR Game</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
+					<div><dt>Studio</dt><dd>Aiko Creative</dd></div>
+					<div><dt>Team size</dt><dd>8 people</dd></div>
+					<div><dt>Status</dt><dd>Available</dd></div>
+					<div><dt>Duration</dt><dd>12 months</dd></div>
+				</dl>
+				<p class="project-lead">A virtual reality Tower Defense / Shooter for the Meta Quest 1 / 2, and Oculus Rift S.</p>
+				<p>The player plays as a space prisoner, sent to fight hordes of enemies invading various planets and defend the settlements.
+				The player has access to an arsenal of weapons with various upgrades and can call offensive towers from orbit onto the battlefield.</p>
+
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/0nrZXLiCtr4" title="Invoiders trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Unity</b></li>
+							<li>Language used: C#</li>
+							<li>Platforms: <a href="https://www.meta.com/fr-fr/experiences/3807370422692379/" target="_blank" rel="noopener noreferrer">Android</a>, <a href="https://www.meta.com/fr-fr/experiences/pcvr/4434572513250824/" target="_blank" rel="noopener noreferrer">PC</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Responsible for programming the character system in VR</li>
+							<li>Developed various weapons useable in VR (Bow, Revolver, Machine Gun, Unreleased weapons)</li>
+							<li>Built custom tools to help with enemy pathing and wave management for designers</li>
+							<li>Developed the towers' various interactions</li>
+							<li>VR UI programming</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+
+			<!-- Cliffdivers Prototypes -->
+			<article class="project" id="cliffdivers-prototypes">
+				<header class="project-header">
+					<h3>Cliffdivers Prototypes <span class="project-year">(2021)</span></h3>
+					<span class="tag">Game Prototype</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
+					<div><dt>Studio</dt><dd><i>Unnamed</i></dd></div>
+					<div><dt>Team size</dt><dd>4 people</dd></div>
+					<div><dt>Status</dt><dd>Internal</dd></div>
+					<div><dt>Duration</dt><dd>8 months</dd></div>
+				</dl>
+				<p class="project-lead">Various prototypes for Cliffdivers before entering production. Worked on during free time.</p>
+
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/QQgfagbYPiA" title="Cliffdivers prototype" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe class="video" src="https://www.youtube.com/embed/d4EYT-giCxo" title="Cliffdivers prototype trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Unreal Engine 4 and 5</b></li>
+							<li>Languages used: C++, Blueprints</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Prototyped a character controller, network replicated using Unreal Network System</li>
+							<li>C++ / Blueprint hybrid state machine</li>
+							<li>Setup of a custom entity renderer based on <a href="https://www.flecs.dev/flecs/" target="_blank" rel="noopener noreferrer">Flecs</a></li>
+						</ul>
+					</div>
+				</div>
+			</article>
+
+			<!-- Aenigma Venatorum -->
+			<article class="project" id="aenigma-venatorum">
+				<header class="project-header">
+					<h3>Aenigma Venatorum <span class="project-year">(2021 – 2022)</span></h3>
+					<span class="tag">Mobile Game</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
+					<div><dt>Studio</dt><dd>Aiko Creative</dd></div>
+					<div><dt>Team size</dt><dd>6 people</dd></div>
+					<div><dt>Status</dt><dd>Released</dd></div>
+					<div><dt>Duration</dt><dd>12 months</dd></div>
+				</dl>
+				<p class="project-lead">3D Puzzle Mobile game. Recreation of existing physical puzzles, at the demand of <a href="https://nkd-puzzle.com/blog/" target="_blank" rel="noopener noreferrer">NKD Puzzle</a>.</p>
+
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/WIWIGfebQOE" title="Aenigma Venatorum trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Unity</b></li>
+							<li>Language used: C#</li>
+							<li>Platforms: <a href="https://play.google.com/store/apps/details?id=com.NKDPuzzle.AenigmaVenatorumFull&amp;hl=fr&amp;gl=US" target="_blank" rel="noopener noreferrer">Android</a>, <a href="https://apps.apple.com/fr/app/aenigma-venatorum-integral/id1628758670" target="_blank" rel="noopener noreferrer">iOS</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Recreated physical puzzles virtually</li>
+							<li>UI programming</li>
+							<li>Save system for puzzle progression</li>
+							<li>Shaders programming</li>
+							<li>Virtual Drawing Pad with save system</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+
+			<!-- Aeroport de Paris VR -->
+			<article class="project" id="adp-vr">
+				<header class="project-header">
+					<h3>Aeroport de Paris VR <span class="project-year">(2019)</span></h3>
+					<span class="tag">Training Tool</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
+					<div><dt>Studio</dt><dd>Aiko Creative</dd></div>
+					<div><dt>Team size</dt><dd>4 people</dd></div>
+					<div><dt>Status</dt><dd>Shipped</dd></div>
+					<div><dt>Duration</dt><dd>8 months</dd></div>
+				</dl>
+				<p class="project-lead">Virtual Reality Training tool for the Paris Charles de Gaulle Airport.</p>
+				<p>Supports up to 6 trainees in local multiplayer with full body tracking using the Vive Pro.</p>
+
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/S7qoEEaUn5I" title="Aeroport de Paris VR" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Unreal Engine 4</b></li>
+							<li>Languages used: Blueprint</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Responsible for programming the character system in VR</li>
+							<li>Developed a full body tracking system</li>
+							<li>Local multiplayer with full body tracking animations replication</li>
+							<li>External control from a control panel for trainer</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+
+			<!-- Other projects -->
+			<h3 class="subsection-title" id="other-projects">Other projects</h3>
+			<div class="compact-grid">
+
+				<article class="project-compact" id="don-random">
+					<header class="project-header">
+						<h4>Don Random</h4>
+						<span class="tag">Jam Game</span>
+					</header>
+					<div class="compact-meta">Lead Programmer · Personal · 4 people · GMTK Jam 2022 · 48 hours · Available</div>
+					<p>Short Tactics Game on the theme of "Roll of the Dice", developed for the GMTK Jam 2022.</p>
+					<div class="itch-embed-wrap">
+						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
+					</div>
+					<iframe class="video" src="https://www.youtube.com/embed/qVwGHwFjUVw" title="Don Random video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<ul>
+						<li>Engine: <b>Unity</b> (C#) · WebGL</li>
+						<li>Enemies AI, dice rolling system, UI programming, assets integration in engine</li>
+					</ul>
+				</article>
+
+				<article class="project-compact" id="ranch-rumble">
+					<header class="project-header">
+						<h4>Redneck Ranch Rumble</h4>
+						<span class="tag">Student Game</span>
+					</header>
+					<div class="compact-meta">Lead Programmer · Student Project · 2 people · 2 months · Available</div>
+					<p>2 Player local party game where each player must score the highest by grabbing and throwing farm animals into a moving truck.</p>
+					<div class="itch-embed-wrap">
+						<iframe class="itch-embed" loading="lazy" title="Redneck Ranch Rumble on itch.io" src="https://itch.io/embed/423375?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
+					</div>
+					<iframe class="video" src="https://www.youtube.com/embed/wAa_CHVZX4E" title="Redneck Ranch Rumble video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<ul>
+						<li>Engine: <b>Shiva</b> (LUA) · Windows</li>
+						<li>Done most of the programming</li>
+					</ul>
+				</article>
+
+				<article class="project-compact" id="mekastasis">
+					<header class="project-header">
+						<h4>Mekastasis</h4>
+						<span class="tag">Dev Tool</span>
+					</header>
+					<div class="compact-meta">Personal project · Unmaintained</div>
+					<p>First foray into making custom tools in Unity. A simple finite state machine configuration in the editor.</p>
+					<div class="itch-embed-wrap">
+						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
+					</div>
+					<img src="https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png" alt="Mekastasis state machine editor screenshot" loading="lazy">
+					<ul>
+						<li>Engine: <b>Unity</b> (C#)</li>
+					</ul>
+				</article>
+
+			</div>
+		</section>
+
+	</main>
 </div>
 
 <script>
+/* Scale fixed-size (552x167) itch.io widgets to fit their container width. */
 (function () {
 	var wraps = document.querySelectorAll('.itch-embed-wrap');
 
@@ -1180,5 +857,4 @@ a:visited {
 </script>
 
 </body>
-
 </html>
