@@ -12,19 +12,23 @@
 
 <style>
 /* ==========================================================
-   Tokens (from color_palette.txt)
+   Tokens: WoodSpark palette (woodspark.txt, Lospec), "Sky"
+   combination, customized. Other palettes that were tried
+   are kept in palettes-archive.css.
    ========================================================== */
 :root {
-	/* Eulbink palette (eulbink.txt, by @inkpendude) */
-	--bg:        #201533; /* deep violet  */
-	--panel:     #252446; /* indigo       */
-	--panel-alt: #203562; /* navy         */
-	--accent-2:  #1e579c; /* royal blue   */
-	--accent:    #0098db; /* azure        */
-	--highlight: #0ce6f2; /* cyan         */
-	--text:      #ffffff; /* white        */
-	--text-dim:  rgba(255, 255, 255, 0.7);
-	--line:      rgba(12, 230, 242, 0.18);
+	--bg:           #2c5e3b; /* forest     */
+	--panel:        #f4e9d4; /* cream      */
+	--panel-alt:    #d0baa9; /* beige      */
+	--accent-2:     #c6cc54; /* lime       */
+	--accent:       #609c4f; /* green      */
+	--highlight:    #609c4f; /* green      */
+	--bg-highlight: #d0baa9; /* green: circular glow behind the top panels */
+	--text:         #452b3f; /* dark plum  */
+
+	/* Derived colors: computed from the tokens above */
+	--text-dim:  color-mix(in srgb, var(--text) 70%, transparent);
+	--line:      color-mix(in srgb, var(--highlight) 18%, transparent);
 
 	--gap: 16px;
 	--radius: 6px;
@@ -68,8 +72,8 @@ body::before {
 	width: 150%;
 	height: 150%;
 	background-image:
-		radial-gradient(circle, rgba(12, 230, 242, 0.07) 1.6px, transparent 1.6px),
-		radial-gradient(circle, rgba(12, 230, 242, 0.07) 1.6px, transparent 1.6px);
+		radial-gradient(circle, color-mix(in srgb, var(--highlight) 7%, transparent) 1.6px, transparent 1.6px),
+		radial-gradient(circle, color-mix(in srgb, var(--highlight) 7%, transparent) 1.6px, transparent 1.6px);
 	background-size: 10px 40px, 40px 10px;
 	background-position: -5px -20px, -20px -5px;
 	transform: rotate(13deg);
@@ -133,6 +137,54 @@ img { max-width: 100%; height: auto; display: block; }
 	border-radius: var(--radius);
 	padding: var(--pad);
 	min-width: 0;
+}
+
+/* Soft circular glow on the top-grid panels, centered slightly off-center
+   at a different hand-picked spot per panel (--glow-x / --glow-y). */
+.area-about,
+.area-history,
+.area-skills {
+	background:
+		radial-gradient(circle at var(--glow-x) var(--glow-y),
+			color-mix(in srgb, var(--bg-highlight) 22%, transparent) 0%,
+			color-mix(in srgb, var(--bg-highlight) 10%, transparent) 35%,
+			transparent 70%),
+		var(--panel);
+}
+.area-about   { --glow-x: 64%; --glow-y: 36%; }
+.area-history { --glow-x: 38%; --glow-y: 58%; }
+.area-skills  { --glow-x: 60%; --glow-y: 66%; }
+
+/* Page-load entrance: each major panel fades in from below, one after the
+   other. --i is the panel's position in the sequence (delay = --i * step).
+   Inspired by cssanimation.io's fadeInBottom (MIT). */
+.hero           { --i: 0; }
+.area-about     { --i: 1; }
+.area-history   { --i: 2; }
+.area-skills    { --i: 3; }
+.area-portfolio { --i: 4; }
+
+.hero,
+.grid > .card {
+	animation: fadeInBottom 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+	animation-delay: calc(var(--i) * 150ms);
+}
+
+@keyframes fadeInBottom {
+	from {
+		opacity: 0;
+		/* fixed distance rather than 100%: the portfolio panel is very tall */
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero,
+	.grid > .card { animation: none; }
 }
 
 .card-title {
@@ -298,9 +350,41 @@ img { max-width: 100%; height: auto; display: block; }
 	font-weight: 400;
 }
 
-.skills-table tbody tr:nth-child(even) { background: var(--panel-alt); }
-.skills-table tbody th { font-weight: 700; white-space: nowrap; }
-.skills-table .dim { color: var(--text-dim); }
+.skills-table tbody tr { border-bottom: 1px solid var(--line); }
+.skills-table tbody tr:last-child { border-bottom: 0; }
+/* Row label top-aligned; extra top padding lines its text up with the first row of chips */
+.skills-table tbody th { font-weight: 700; white-space: nowrap; vertical-align: top; padding-top: 10px; }
+.skills-table tbody td { padding-top: 8px; padding-bottom: 8px; }
+
+
+/* One small panel per skill */
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.chips li + li { margin-top: 0; }
+
+.chips li {
+	padding: 2px 8px;
+	border-radius: 4px;
+	background: var(--accent-2);
+	border: 1px solid var(--accent-2);
+	color: var(--text);
+	font-size: 0.88rem;
+	font-weight: 700;
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+/* "Experimented with" column: outlined, dimmer — secondary to "worked with" */
+.skills-table td:nth-child(3) .chips li {
+	background: transparent;
+	color: var(--text-dim);
+}
 
 .languages-spoken { margin-top: 20px; }
 .languages-spoken h3 { font-size: 1.1rem; margin-bottom: 6px; }
@@ -670,11 +754,31 @@ img { max-width: 100%; height: auto; display: block; }
 					<tr><th scope="col"></th><th scope="col">Worked with</th><th scope="col">Experimented with</th></tr>
 				</thead>
 				<tbody>
-					<tr><th scope="row">Engines</th><td>Unity, Unreal, Godot</td><td class="dim"></td></tr>
-					<tr><th scope="row">Libraries</th><td>Flecs, Enet</td><td class="dim">Raylib, MonoGame, LibGDX</td></tr>
-					<tr><th scope="row">Languages</th><td>C#, C++, LUA, JS</td><td class="dim">Odin, Nim, Haxe, Python</td></tr>
-					<tr><th scope="row">Software</th><td>Blender, 3DsMax, Substance Designer, Photoshop</td><td class="dim"></td></tr>
-					<tr><th scope="row">Source Control</th><td>Git, PlasticSCM</td><td class="dim"></td></tr>
+					<tr>
+						<th scope="row">Programming<br>Languages</th>
+						<td><ul class="chips"><li>C#</li><li>C++</li><li>C</li><li>LUA</li><li>Odin</li></ul></td>
+						<td><ul class="chips"><li>Nim</li><li>Haxe</li><li>Python</li></ul></td>
+					</tr>
+					<tr>
+						<th scope="row">Engines</th>
+						<td><ul class="chips"><li>Unity</li><li>Unreal</li><li>Godot</li></ul></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">Libraries</th>
+						<td><ul class="chips"><li>Flecs</li><li>Enet</li><li>PS5 SDK</li><li>Xbox SDK</li></ul></td>
+						<td><ul class="chips"><li>Raylib</li><li>MonoGame</li><li>LibGDX</li></ul></td>
+					</tr>
+					<tr>
+						<th scope="row">Software</th>
+						<td><ul class="chips"><li>Blender</li><li>3DsMax</li><li>Substance Designer</li><li>Photoshop</li></ul></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th scope="row">Source Control</th>
+						<td><ul class="chips"><li>Git</li><li>PlasticSCM</li></ul></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
@@ -969,7 +1073,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="compact-meta">Lead Programmer · Personal · 4 people · GMTK Jam 2022 · 48 hours · Available</div>
 					<p>Short Tactics Game on the theme of "Roll of the Dice", developed for the GMTK Jam 2022.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=f4e9d4&amp;fg_color=452b3f&amp;link_color=2c5e3b&amp;border_color=f4e9d4"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
 					</div>
 					<ul>
 						<li>Engine: <b>Unity</b> (C#) · WebGL</li>
@@ -985,7 +1089,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="compact-meta">Lead Programmer · Student Project · 2 people · 2 months · Available</div>
 					<p>2 Player local party game where each player must score the highest by grabbing and throwing farm animals into a moving truck.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Redneck Ranch Rumble on itch.io" src="https://itch.io/embed/423375?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Redneck Ranch Rumble on itch.io" src="https://itch.io/embed/423375?bg_color=f4e9d4&amp;fg_color=452b3f&amp;link_color=2c5e3b&amp;border_color=f4e9d4"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
 					</div>
 					<iframe class="video" src="https://www.youtube.com/embed/wAa_CHVZX4E" title="Redneck Ranch Rumble video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<ul>
@@ -1002,7 +1106,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="compact-meta">Personal project · Unmaintained</div>
 					<p>First foray into making custom tools in Unity. A simple finite state machine configuration in the editor.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=f4e9d4&amp;fg_color=452b3f&amp;link_color=2c5e3b&amp;border_color=f4e9d4"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
 					</div>
 					<img src="https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png" alt="Mekastasis state machine editor screenshot" loading="lazy">
 					<ul>
