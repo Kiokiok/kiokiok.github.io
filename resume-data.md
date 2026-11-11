@@ -21,10 +21,10 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 
 | Category | Worked with | Experimented with |
 |---|---|---|
-| Programming Languages | C#, C++, C, LUA, Odin | Nim, Haxe, Python |
+| Programming Languages | C#, C++, C, LUA, Python, Odin | Java, Nim, Haxe |
 | Engines | Unity, Unreal, Godot | |
-| Libraries | Flecs, Enet, PS5 SDK, Xbox SDK | Raylib, MonoGame, LibGDX |
-| Software | Blender, 3DsMax, Substance Designer, Photoshop | |
+| Libraries | DearImGUI, Flecs, Enet, PS5 SDK, Xbox SDK | OpenGL, SDL3, Raylib, MonoGame, LibGDX |
+| Software | Blender, RadDebugger, Superluminal, 3DsMax, Substance Designer, Photoshop | Tracy |
 | Source Control | Git, PlasticSCM | |
 
 ### Languages Spoken
