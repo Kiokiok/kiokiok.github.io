@@ -37,15 +37,28 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 ### Midgar Studio — 2024 - 2026
 - Role: Lead Programmer (2026)
 - Role: Gameplay Programmer (2024 - 2026)
-- Worked on Edge Of Memories, a singleplayer Action RPG for PC, PS5 and Xbox, in Unreal Engine 5
+- Worked on Edge Of Memories, a singleplayer Action RPG for PC, PS5 and Xbox, in a studio of around 35 people. Joined as a Gameplay Programmer, then became Lead Programmer in 2026 for the run-up to release.
+- Highlights:
+  - Gameplay programming in Unreal Engine 5 (C++, Blueprints)
+  - Worked with console platform SDKs (PS5, Xbox)
 
 ### Cliffdivers Project — 2023 - 2024
 - Role: Principal Programmer
-- Worked on a game project targeting the PC platform
+- Sole programmer on Cliffdivers, a procedural multiplayer survival adventure for PC built in Godot by a team of 4, with the goal of co-founding a studio. Handled pretty much every technical aspect of the game.
+- Highlights:
+  - Integrated the Flecs ECS into Godot, with a custom entity renderer
+  - Networked entity replication over Enet, interest management and world streaming
+  - Data-driven entities, items and recipes in LUA, paving the way for modding
+  - Character controller built on an extensive state machine, gameplay tools and UI
+  - Followed earlier prototypes (2021) in Unreal Engine 4 / 5: networked character controller, C++ / Blueprint state machine
 
 ### Aiko Creative — 2020 - 2022
 - Role: Principal Programmer
-- Shipped a VR game, a Mobile game, and various B2B games and applications
+- Lead programmer on the studio's projects, shipping a VR game, a mobile game, and various B2B games and applications in Unity and Unreal Engine.
+- Highlights:
+  - Invoiders (VR, Unity): VR character system, weapons, enemy pathing and wave tools for designers, VR UI
+  - Aenigma Venatorum (Mobile, Unity): virtual recreations of physical puzzles, progression saves, shaders, UI
+  - Aeroport de Paris VR (Unreal): full body tracking for up to 6 trainees in local multiplayer, trainer control panel
 
 ### Studio Muybridge — 2019 - 2020
 - Role: Programmer
@@ -53,6 +66,7 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 
 ### ETPA School of Game Design — 2016 - 2019
 - Role: Student
+- Game design studies, including lead programming on student projects such as Redneck Ranch Rumble, a 2-player local party game (Shiva, LUA).
 
 ## Portfolio Projects
 

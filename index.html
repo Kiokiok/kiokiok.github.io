@@ -42,6 +42,10 @@
 
 html { scroll-behavior: smooth; }
 
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}
+
 body {
 	margin: 0;
 	background: var(--bg);
@@ -194,13 +198,13 @@ img { max-width: 100%; height: auto; display: block; }
 	background: var(--accent);
 }
 
-.timeline li {
+.timeline > li {
 	position: relative;
 	margin: 0 0 26px;
 }
-.timeline li:last-child { margin-bottom: 0; }
+.timeline > li:last-child { margin-bottom: 0; }
 
-.timeline li::before {
+.timeline > li::before {
 	content: "";
 	position: absolute;
 	left: -28px;
@@ -242,6 +246,16 @@ img { max-width: 100%; height: auto; display: block; }
 	margin: 0;
 }
 
+.tl-highlights {
+	margin: 8px 0 0;
+	padding-left: 1.1em;
+	font-size: 0.92rem;
+	line-height: 1.45;
+}
+.tl-highlights li::marker { color: var(--accent); }
+
+.tl-link { font-weight: 700; }
+
 /* ==========================================================
    Skills
    ========================================================== */
@@ -275,6 +289,70 @@ img { max-width: 100%; height: auto; display: block; }
 /* ==========================================================
    Portfolio
    ========================================================== */
+
+/* Project shortcut buttons */
+.project-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: calc(var(--pad) * 1.2);
+}
+
+.project-nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.project-nav li + li { margin-top: 0; }
+
+.project-nav-label {
+	color: var(--text-dim);
+	font-family: var(--font-head);
+	font-size: 0.85rem;
+	margin-right: 2px;
+}
+
+.project-link {
+	display: inline-block;
+	padding: 5px 14px;
+	border-radius: 999px;
+	background: var(--panel-alt);
+	border: 1px solid transparent;
+	color: var(--text);
+	font-family: var(--font-head);
+	font-size: 0.9rem;
+	text-decoration: none;
+	transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+	color: var(--highlight);
+	border-color: var(--highlight);
+	transform: translateY(-1px);
+}
+
+.project-nav-other .project-link {
+	font-size: 0.8rem;
+	padding: 3px 12px;
+}
+
+/* Scroll targets: leave a small gap above, flash briefly when jumped to */
+.project,
+.project-compact {
+	scroll-margin-top: 20px;
+	outline: 2px solid transparent;
+	outline-offset: 12px;
+	transition: outline-color 0.6s ease;
+}
+.project-compact { outline-offset: 0; }
+
+.is-target { outline-color: var(--highlight); }
 .project {
 	padding: var(--pad) 0;
 	border-top: 1px solid var(--line);
@@ -519,17 +597,33 @@ img { max-width: 100%; height: auto; display: block; }
 				<li>
 					<div class="tl-head"><h3>Midgar Studio</h3><span class="tl-dates">2024 – 2026</span></div>
 					<div class="tl-role">Lead Programmer <span class="tl-dates">(2026)</span> · Gameplay Programmer <span class="tl-dates">(2024 – 2026)</span></div>
-					<p class="tl-desc">Worked on Edge Of Memories, a singleplayer Action RPG for PC, PS5 and Xbox, in Unreal Engine 5.</p>
+					<p class="tl-desc">Worked on <a class="tl-link" href="#edge-of-memories">Edge Of Memories</a>, a singleplayer Action RPG for PC, PS5 and Xbox, in a studio of around 35 people. Joined as a Gameplay Programmer, then became Lead Programmer in 2026 for the run-up to release.</p>
+					<ul class="tl-highlights">
+						<li>Gameplay programming in Unreal Engine 5 (C++, Blueprints)</li>
+						<li>Worked with console platform SDKs (PS5, Xbox)</li>
+					</ul>
 				</li>
 				<li>
 					<div class="tl-head"><h3>Cliffdivers Project</h3><span class="tl-dates">2023 – 2024</span></div>
 					<div class="tl-role">Principal Programmer</div>
-					<p class="tl-desc">Worked on a game project targeting the PC platform.</p>
+					<p class="tl-desc">Sole programmer on <a class="tl-link" href="#cliffdivers">Cliffdivers</a>, a procedural multiplayer survival adventure for PC built in Godot by a team of 4, with the goal of co-founding a studio. Handled pretty much every technical aspect of the game.</p>
+					<ul class="tl-highlights">
+						<li>Integrated the Flecs ECS into Godot, with a custom entity renderer</li>
+						<li>Networked entity replication over Enet, interest management and world streaming</li>
+						<li>Data-driven entities, items and recipes in LUA, paving the way for modding</li>
+						<li>Character controller built on an extensive state machine, gameplay tools and UI</li>
+						<li>Followed earlier <a class="tl-link" href="#cliffdivers-prototypes">prototypes</a> (2021) in Unreal Engine 4 / 5: networked character controller, C++ / Blueprint state machine</li>
+					</ul>
 				</li>
 				<li>
 					<div class="tl-head"><h3>Aiko Creative</h3><span class="tl-dates">2020 – 2022</span></div>
 					<div class="tl-role">Principal Programmer</div>
-					<p class="tl-desc">Shipped a VR game, a Mobile game, and various B2B games and applications.</p>
+					<p class="tl-desc">Lead programmer on the studio's projects, shipping a VR game, a mobile game, and various B2B games and applications in Unity and Unreal Engine.</p>
+					<ul class="tl-highlights">
+						<li><a class="tl-link" href="#invoiders">Invoiders</a> (VR, Unity): VR character system, weapons, enemy pathing and wave tools for designers, VR UI</li>
+						<li><a class="tl-link" href="#aenigma-venatorum">Aenigma Venatorum</a> (Mobile, Unity): virtual recreations of physical puzzles, progression saves, shaders, UI</li>
+						<li><a class="tl-link" href="#adp-vr">Aeroport de Paris VR</a> (Unreal): full body tracking for up to 6 trainees in local multiplayer, trainer control panel</li>
+					</ul>
 				</li>
 				<li>
 					<div class="tl-head"><h3>Studio Muybridge</h3><span class="tl-dates">2019 – 2020</span></div>
@@ -539,6 +633,7 @@ img { max-width: 100%; height: auto; display: block; }
 				<li>
 					<div class="tl-head"><h3>ETPA School of Game Design</h3><span class="tl-dates">2016 – 2019</span></div>
 					<div class="tl-role">Student</div>
+					<p class="tl-desc">Game design studies, including lead programming on student projects such as <a class="tl-link" href="#ranch-rumble">Redneck Ranch Rumble</a>, a 2-player local party game (Shiva, LUA).</p>
 				</li>
 			</ol>
 		</section>
@@ -572,6 +667,23 @@ img { max-width: 100%; height: auto; display: block; }
 		<!-- ===================== PORTFOLIO / SHOWCASE ===================== -->
 		<section id="portfolio" class="card area-portfolio">
 			<h2 class="card-title">Portfolio</h2>
+
+			<nav class="project-nav" aria-label="Jump to project">
+				<ul>
+					<li><a class="project-link" href="#edge-of-memories">Edge Of Memories</a></li>
+					<li><a class="project-link" href="#cliffdivers">Cliffdivers</a></li>
+					<li><a class="project-link" href="#invoiders">Invoiders</a></li>
+					<li><a class="project-link" href="#cliffdivers-prototypes">Cliffdivers Prototypes</a></li>
+					<li><a class="project-link" href="#aenigma-venatorum">Aenigma Venatorum</a></li>
+					<li><a class="project-link" href="#adp-vr">Aeroport de Paris VR</a></li>
+				</ul>
+				<ul class="project-nav-other">
+					<li class="project-nav-label">Other:</li>
+					<li><a class="project-link" href="#don-random">Don Random</a></li>
+					<li><a class="project-link" href="#ranch-rumble">Redneck Ranch Rumble</a></li>
+					<li><a class="project-link" href="#mekastasis">Mekastasis</a></li>
+				</ul>
+			</nav>
 
 			<!-- Edge Of Memories -->
 			<article class="project" id="edge-of-memories">
@@ -903,6 +1015,37 @@ img { max-width: 100%; height: auto; display: block; }
 			wraps.forEach(applyScale);
 		});
 	}
+})();
+
+/* Portfolio shortcuts: smooth-scroll to the project, update the URL hash
+   without adding history entries, and briefly highlight the target. */
+(function () {
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+	var flashTimer;
+
+	document.querySelectorAll('.project-link, .tl-link').forEach(function (link) {
+		link.addEventListener('click', function (e) {
+			var id = link.getAttribute('href').slice(1);
+			var target = document.getElementById(id);
+			if (!target) return;
+			e.preventDefault();
+
+			target.scrollIntoView({
+				behavior: reduceMotion.matches ? 'auto' : 'smooth',
+				block: 'start'
+			});
+			history.replaceState(null, '', '#' + id);
+
+			document.querySelectorAll('.is-target').forEach(function (el) {
+				el.classList.remove('is-target');
+			});
+			clearTimeout(flashTimer);
+			target.classList.add('is-target');
+			flashTimer = setTimeout(function () {
+				target.classList.remove('is-target');
+			}, 1200);
+		});
+	});
 })();
 </script>
 
