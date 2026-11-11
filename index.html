@@ -15,13 +15,16 @@
    Tokens (from color_palette.txt)
    ========================================================== */
 :root {
-	--bg:        #3a3a3a; /* dark gray  */
-	--panel:     #6c6f73; /* soft gray  */
-	--panel-alt: #8a8f98; /* light gray */
-	--accent:    #2f4f3e; /* pine green */
-	--text:      #f5f5f3; /* soft white */
-	--text-dim:  rgba(245, 245, 243, 0.72);
-	--line:      rgba(245, 245, 243, 0.18);
+	/* Eulbink palette (eulbink.txt, by @inkpendude) */
+	--bg:        #201533; /* deep violet  */
+	--panel:     #252446; /* indigo       */
+	--panel-alt: #203562; /* navy         */
+	--accent-2:  #1e579c; /* royal blue   */
+	--accent:    #0098db; /* azure        */
+	--highlight: #0ce6f2; /* cyan         */
+	--text:      #ffffff; /* white        */
+	--text-dim:  rgba(255, 255, 255, 0.7);
+	--line:      rgba(12, 230, 242, 0.18);
 
 	--gap: 16px;
 	--radius: 6px;
@@ -60,8 +63,8 @@ body::before {
 	width: 150%;
 	height: 150%;
 	background-image:
-		radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px),
-		radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.6px, transparent 1.6px);
+		radial-gradient(circle, rgba(12, 230, 242, 0.07) 1.6px, transparent 1.6px),
+		radial-gradient(circle, rgba(12, 230, 242, 0.07) 1.6px, transparent 1.6px);
 	background-size: 10px 40px, 40px 10px;
 	background-position: -5px -20px, -20px -5px;
 	transform: rotate(13deg);
@@ -85,10 +88,10 @@ li + li { margin-top: 3px; }
 a {
 	color: var(--text);
 	text-decoration: underline;
-	text-decoration-color: var(--panel-alt);
+	text-decoration-color: var(--accent);
 	text-underline-offset: 3px;
 }
-a:hover { text-decoration-color: var(--text); }
+a:hover { color: var(--highlight); text-decoration-color: var(--highlight); }
 a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -131,7 +134,7 @@ img { max-width: 100%; height: auto; display: block; }
 	font-size: 1.7rem;
 	padding-bottom: 0.3em;
 	margin-bottom: 0.8em;
-	border-bottom: 3px solid var(--accent);
+	border-bottom: 3px solid var(--highlight);
 	display: inline-block;
 }
 
@@ -188,7 +191,7 @@ img { max-width: 100%; height: auto; display: block; }
 	top: 8px;
 	bottom: 0;
 	width: 2px;
-	background: var(--text);
+	background: var(--accent);
 }
 
 .timeline li {
@@ -205,8 +208,9 @@ img { max-width: 100%; height: auto; display: block; }
 	width: 14px;
 	height: 14px;
 	border-radius: 50%;
-	background: var(--text);
-	border: 3px solid var(--accent);
+	background: var(--highlight);
+	border: 3px solid var(--panel);
+	box-shadow: 0 0 0 2px var(--accent);
 }
 
 .tl-head {
@@ -256,11 +260,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .skills-table thead th {
 	font-family: var(--font-head);
-	background: var(--accent);
+	background: var(--accent-2);
 	font-weight: 400;
 }
 
-.skills-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.08); }
+.skills-table tbody tr:nth-child(even) { background: var(--panel-alt); }
 .skills-table tbody th { font-weight: 700; white-space: nowrap; }
 .skills-table .dim { color: var(--text-dim); }
 
@@ -304,14 +308,9 @@ img { max-width: 100%; height: auto; display: block; }
 	text-transform: uppercase;
 	padding: 2px 10px;
 	border-radius: 999px;
-	background: var(--panel-alt);
-	color: var(--bg);
-	font-weight: 700;
-}
-
-.tag-featured {
-	background: var(--accent);
+	background: var(--accent-2);
 	color: var(--text);
+	font-weight: 700;
 }
 
 .meta-strip {
@@ -320,7 +319,7 @@ img { max-width: 100%; height: auto; display: block; }
 	gap: 0;
 	margin: 0 0 16px;
 	padding: 0;
-	background: rgba(0, 0, 0, 0.12);
+	background: var(--panel-alt);
 	border-radius: var(--radius);
 	overflow: hidden;
 }
@@ -395,7 +394,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .project-compact {
-	background: rgba(0, 0, 0, 0.12);
+	background: var(--panel-alt);
 	border-radius: var(--radius);
 	padding: 20px;
 	min-width: 0;
@@ -496,6 +495,11 @@ img { max-width: 100%; height: auto; display: block; }
 			<h2 class="card-title">Work history</h2>
 			<ol class="timeline">
 				<li>
+					<div class="tl-head"><h3>Midgar Studio</h3><span class="tl-dates">2024 – 2026</span></div>
+					<div class="tl-role">Lead Programmer <span class="tl-dates">(2026)</span> · Gameplay Programmer <span class="tl-dates">(2024 – 2026)</span></div>
+					<p class="tl-desc">Worked on Edge Of Memories, a singleplayer Action RPG for PC, PS5 and Xbox, in Unreal Engine 5.</p>
+				</li>
+				<li>
 					<div class="tl-head"><h3>Cliffdivers Project</h3><span class="tl-dates">2023 – 2024</span></div>
 					<div class="tl-role">Principal Programmer</div>
 					<p class="tl-desc">Worked on a game project targeting the PC platform.</p>
@@ -547,12 +551,37 @@ img { max-width: 100%; height: auto; display: block; }
 		<section id="portfolio" class="card area-portfolio">
 			<h2 class="card-title">Portfolio</h2>
 
+			<!-- Edge Of Memories -->
+			<article class="project" id="edge-of-memories">
+				<header class="project-header">
+					<h3>Edge Of Memories <span class="project-year">(2024 – 2026)</span></h3>
+					<span class="tag">PC, PS5, Xbox Game</span>
+				</header>
+				<dl class="meta-strip">
+					<div><dt>Role</dt><dd>Lead Programmer (2026)<br>Gameplay Programmer (2024 – 2026)</dd></div>
+					<div><dt>Studio</dt><dd>Midgar Studio</dd></div>
+					<div><dt>Team size</dt><dd>Around 35 people</dd></div>
+					<div><dt>Status</dt><dd>Releasing Dec 3, 2026</dd></div>
+				</dl>
+				<p class="project-lead">A singleplayer Action RPG.</p>
+
+				<div class="project-details">
+					<div>
+						<h4>Technical information</h4>
+						<ul>
+							<li>Engine: <b>Unreal Engine 5</b></li>
+							<li>Languages used: C++, Blueprints</li>
+							<li>Worked with console platform SDKs (PS5, Xbox)</li>
+						</ul>
+					</div>
+				</div>
+			</article>
+
 			<!-- Cliffdivers -->
 			<article class="project" id="cliffdivers">
 				<header class="project-header">
 					<h3>Cliffdivers <span class="project-year">(2023)</span></h3>
 					<span class="tag">PC Game</span>
-					<span class="tag tag-featured">Featured</span>
 				</header>
 				<dl class="meta-strip">
 					<div><dt>Role</dt><dd>Lead Programmer</dd></div>
@@ -562,7 +591,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div><dt>Duration</dt><dd>12 months</dd></div>
 				</dl>
 				<p class="project-lead">A procedural multiplayer survival adventure game.</p>
-				<p>My latest and biggest project to date. I worked full time on this project for all of 2023, with the end goal of co-founding a studio.
+				<p>I worked full time on this project for all of 2023, with the end goal of co-founding a studio.
 				I left the team at the beginning of 2024 for personal reasons, but the project was a lot of fun to work on and I learned a lot while working on it.
 				I was the sole programmer on the team, and handled pretty much every technical aspect of it.</p>
 				<p>The game features an open, vertical, procedural world explorable in multiplayer. The players have many tools available to help them traverse the atypical world.
@@ -777,12 +806,12 @@ img { max-width: 100%; height: auto; display: block; }
 				<article class="project-compact" id="don-random">
 					<header class="project-header">
 						<h4>Don Random</h4>
-						<span class="tag">Jam Game</span>
+						<span class="tag">Game Jam</span>
 					</header>
 					<div class="compact-meta">Lead Programmer · Personal · 4 people · GMTK Jam 2022 · 48 hours · Available</div>
 					<p>Short Tactics Game on the theme of "Roll of the Dice", developed for the GMTK Jam 2022.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
 					</div>
 					<iframe class="video" src="https://www.youtube.com/embed/qVwGHwFjUVw" title="Don Random video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<ul>
@@ -799,7 +828,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="compact-meta">Lead Programmer · Student Project · 2 people · 2 months · Available</div>
 					<p>2 Player local party game where each player must score the highest by grabbing and throwing farm animals into a moving truck.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Redneck Ranch Rumble on itch.io" src="https://itch.io/embed/423375?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Redneck Ranch Rumble on itch.io" src="https://itch.io/embed/423375?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/redneck-ranch-rumble">Redneck Ranch Rumble by Kiiok</a></iframe>
 					</div>
 					<iframe class="video" src="https://www.youtube.com/embed/wAa_CHVZX4E" title="Redneck Ranch Rumble video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<ul>
@@ -816,7 +845,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="compact-meta">Personal project · Unmaintained</div>
 					<p>First foray into making custom tools in Unity. A simple finite state machine configuration in the editor.</p>
 					<div class="itch-embed-wrap">
-						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=2f4f3e&amp;fg_color=f5f5f3&amp;link_color=8a8f98&amp;border_color=2f4f3e"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
+						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
 					</div>
 					<img src="https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png" alt="Mekastasis state machine editor screenshot" loading="lazy">
 					<ul>

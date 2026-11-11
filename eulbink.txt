@@ -1,0 +1,12 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: Eulbink
+;Description: A blue themed color palette I've been using for years. Feel free to tag me (@inkpendude) on social media so I can share it too! I love to see what you guys do with this colors.
+;Colors: 7
+FFffffff
+FF0ce6f2
+FF0098db
+FF1e579c
+FF203562
+FF252446
+FF201533
