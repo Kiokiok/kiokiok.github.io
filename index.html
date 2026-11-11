@@ -409,7 +409,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .languages-spoken { margin-top: 20px; }
 .languages-spoken h3 { font-size: 1.1rem; margin-bottom: 6px; }
-.languages-spoken ul { list-style: none; padding: 0; }
+.languages-spoken ul { list-style: none; padding: 0 0 0 14px; } /* slight indent under the title */
+.languages-spoken .flag { display: inline-block; margin-right: 10px; } /* gap between flag and text */
 
 /* ==========================================================
    Portfolio
@@ -852,9 +853,9 @@ img { max-width: 100%; height: auto; display: block; }
 			<div class="languages-spoken">
 				<h3>Languages spoken</h3>
 				<ul>
-					<li>🇫🇷 French — Native</li>
-					<li>🇬🇧 English — Fluent</li>
-					<li>🇪🇸 Spanish — Basics</li>
+					<li><span class="flag" aria-hidden="true">🇫🇷</span>French — Native</li>
+					<li><span class="flag" aria-hidden="true">🇬🇧</span>English — Fluent</li>
+					<li><span class="flag" aria-hidden="true">🇪🇸</span>Spanish — Basics</li>
 				</ul>
 			</div>
 		</section>
