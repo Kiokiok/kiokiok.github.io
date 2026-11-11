@@ -201,7 +201,6 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 - Description: Short Tactics Game on the theme of "Roll of the Dice", developed for the GMTK Jam 2022.
 - Links:
   - Itch.io embed: https://itch.io/embed/1623397 (https://kiiok.itch.io/don-random)
-  - Video: https://www.youtube.com/embed/qVwGHwFjUVw
 - Technical Information:
   - Engine: Unity
   - Language used: C#

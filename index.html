@@ -379,6 +379,28 @@ img { max-width: 100%; height: auto; display: block; }
 	margin-bottom: 6px;
 }
 
+/* Single-video projects: video on the left, tech info + notes stacked on
+   the right. Everything else in the article keeps spanning full width. */
+@media (min-width: 901px) {
+	.project:has(> .media > .video:only-child) {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		column-gap: calc(var(--gap) * 2);
+		align-items: start;
+	}
+	.project:has(> .media > .video:only-child) > * { grid-column: 1 / -1; }
+	.project:has(> .media > .video:only-child) > .media {
+		grid-column: 1;
+		grid-template-columns: minmax(0, 1fr);
+		margin: 6px 0 0;
+	}
+	.project:has(> .media > .video:only-child) > .project-details {
+		grid-column: 2;
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: 6px;
+	}
+}
+
 /* Other projects */
 .subsection-title {
 	font-size: 1.4rem;
@@ -813,7 +835,6 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="itch-embed-wrap">
 						<iframe class="itch-embed" loading="lazy" title="Don Random on itch.io" src="https://itch.io/embed/1623397?bg_color=203562&amp;fg_color=ffffff&amp;link_color=0ce6f2&amp;border_color=1e579c"><a href="https://kiiok.itch.io/don-random">Don Random by Kiiok</a></iframe>
 					</div>
-					<iframe class="video" src="https://www.youtube.com/embed/qVwGHwFjUVw" title="Don Random video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					<ul>
 						<li>Engine: <b>Unity</b> (C#) · WebGL</li>
 						<li>Enemies AI, dice rolling system, UI programming, assets integration in engine</li>
