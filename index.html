@@ -19,16 +19,18 @@
 :root {
 	--bg:           #2c5e3b; /* forest     */
 	--panel:        #f4e9d4; /* cream      */
+	--panel-pattern:#EDDAC7; /* cream, a touch darker: dot pattern on the panels */
 	--panel-alt:    #d0baa9; /* beige      */
 	--accent-2:     #c6cc54; /* lime       */
 	--accent:       #609c4f; /* green      */
 	--highlight:    #609c4f; /* green      */
-	--bg-highlight: #d0baa9; /* green: circular glow behind the top panels */
+	--bg-highlight: #d0baa9; /* beige: circular glow behind the top panels */
 	--text:         #452b3f; /* dark plum  */
 
 	/* Derived colors: computed from the tokens above */
 	--text-dim:  color-mix(in srgb, var(--text) 70%, transparent);
 	--line:      color-mix(in srgb, var(--highlight) 18%, transparent);
+
 
 	--gap: 16px;
 	--radius: 6px;
@@ -133,10 +135,29 @@ img { max-width: 100%; height: auto; display: block; }
    Card
    ========================================================== */
 .card {
+	position: relative;
+	isolation: isolate; /* own stacking context: the pattern layer sits under the content */
+	overflow: clip;     /* trims the rotated pattern layer to the panel */
 	background: var(--panel);
 	border-radius: var(--radius);
 	padding: var(--pad);
 	min-width: 0;
+}
+
+/* Panel pattern: grid of 2px dots every 32px in --panel-pattern, tilted 13deg
+   like the page background. A gradient can't be rotated by itself, so it lives
+   on an oversized layer behind the content, rotated and clipped by the card. */
+.card::before {
+	content: "";
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(var(--panel-pattern) 2px, transparent 2px) 0 0 / 32px 32px;
+	transform: rotate(13deg);
+	z-index: -1;
+	pointer-events: none;
 }
 
 /* Soft circular glow on the top-grid panels, centered slightly off-center
@@ -450,17 +471,63 @@ img { max-width: 100%; height: auto; display: block; }
 	padding: 3px 12px;
 }
 
-/* Scroll targets: leave a small gap above, flash briefly when jumped to */
+/* Scroll targets: leave a small gap above, and briefly show an animated
+   dashed gradient frame when jumped to (.is-target, set by the shortcut JS).
+   A border can't be both dashed and gradient-colored, so the frame is an
+   overlay filled with a spinning gradient, masked down to dashed strips. */
+
+/* lets the browser animate the gradient angle */
+@property --border-angle {
+	syntax: '<angle>';
+	initial-value: 270deg;
+	inherits: false;
+}
+
+@keyframes border-spin {
+	to { --border-angle: 630deg; }
+}
+
 .project,
 .project-compact {
+	position: relative;
 	scroll-margin-top: 20px;
-	outline: 2px solid transparent;
-	outline-offset: 12px;
-	transition: outline-color 0.6s ease;
 }
-.project-compact { outline-offset: 0; }
 
-.is-target { outline-color: var(--highlight); }
+.project::after,
+.project-compact::after {
+	content: "";
+	position: absolute;
+	inset: -12px; /* 12px gap around full projects */
+	pointer-events: none;
+
+	/* Dashed rounded frame drawn as an SVG used as a mask: rx = corner
+	   radius, stroke-dasharray = "dash gap", stroke-width = frame width.
+	   The rect is inset by half the stroke so the line is never clipped.
+	   The SVG's own CSS animation shifts stroke-dashoffset by one full
+	   dash + gap (16) per 0.6s, so the dashes march clockwise. */
+	--frame-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Erect%7Banimation:march .6s linear infinite%7D%40keyframes march%7Bto%7Bstroke-dashoffset:-16%7D%7D%40media (prefers-reduced-motion:reduce)%7Brect%7Banimation:none%7D%7D%3C/style%3E%3Crect x='2' y='2' rx='10' style='width:calc(100%25 - 4px)%3Bheight:calc(100%25 - 4px)' fill='none' stroke='%23000' stroke-width='4' stroke-dasharray='10 6'/%3E%3C/svg%3E");
+
+	background: linear-gradient(var(--border-angle), var(--highlight), var(--accent-2));
+	-webkit-mask: var(--frame-mask) 0 0 / 100% 100% no-repeat;
+	mask: var(--frame-mask) 0 0 / 100% 100% no-repeat;
+
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+/* compact cards: frame on their edge, corners matching the card's 6px radius */
+.project-compact::after {
+	inset: 0;
+	--frame-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Erect%7Banimation:march .6s linear infinite%7D%40keyframes march%7Bto%7Bstroke-dashoffset:-16%7D%7D%40media (prefers-reduced-motion:reduce)%7Brect%7Banimation:none%7D%7D%3C/style%3E%3Crect x='2' y='2' rx='5' style='width:calc(100%25 - 4px)%3Bheight:calc(100%25 - 4px)' fill='none' stroke='%23000' stroke-width='4' stroke-dasharray='10 6'/%3E%3C/svg%3E");
+}
+
+.is-target::after {
+	opacity: 1;
+	animation: border-spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.is-target::after { animation: none; }
+}
 .project {
 	padding: var(--pad) 0;
 	border-top: 1px solid var(--line);
@@ -1171,7 +1238,7 @@ img { max-width: 100%; height: auto; display: block; }
 			target.classList.add('is-target');
 			flashTimer = setTimeout(function () {
 				target.classList.remove('is-target');
-			}, 1200);
+			}, 2000);
 		});
 	});
 })();
