@@ -12,15 +12,13 @@
 
 <style>
 /* ==========================================================
-   Tokens: WoodSpark palette (woodspark.txt, Lospec), "Sky"
-   combination, customized. Other palettes that were tried
-   are kept in palettes-archive.css.
+   WoodSpark palette (woodspark.txt, Lospec)
    ========================================================== */
 :root {
 	--bg:           #2c5e3b; /* forest     */
 	--panel:        #f4e9d4; /* cream      */
 	--panel-pattern:#EDDAC7; /* cream, a touch darker: dot pattern on the panels */
-	--panel-alt:    #d0baa9; /* beige      */
+	--panel-alt:    #E3D1BF; /* beige      */
 	--accent-2:     #c6cc54; /* lime       */
 	--accent:       #609c4f; /* green      */
 	--highlight:    #609c4f; /* green      */
@@ -237,8 +235,43 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero .role {
 	font-size: 1.35rem;
-	font-weight: 400;
-	margin: 0.4em 0 0.6em;
+	font-weight: 700; /* bold stamp lettering */
+	margin: 0.4em 0 1.1em; /* extra room below so the tilted stamp clears the contact links */
+}
+
+/* Role title: rubber-stamp effect — the word slams down like an ink stamp
+   once, then stays. Adapted from "Rubber-Stamp" (fx-stamp): palette green
+   instead of pink, the title's own heading font, plays a single time after
+   a short delay on page load. */
+.fx-stamp {
+	--ink-2: var(--accent);   /* stamp ink */
+	--stamp-start: 0.325s;     /* wait after page load before the stamp lands */
+
+	display: inline-block;    /* hug the text so border + rotation fit the word */
+	line-height: 1;
+	color: var(--ink-2);
+	padding: .38em .5em;
+	border: 3px solid var(--ink-2);
+	border-radius: 8px;
+	box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ink-2) 55%, transparent);
+	transform: rotate(-6deg); /* resting state */
+	animation: fx-stamp 0.6s cubic-bezier(.22, 1.4, .36, 1) 1;
+	animation-delay: var(--stamp-start);
+	animation-fill-mode: both; /* hidden during the delay, stays stamped after */
+}
+
+/* The slam part of the original loop (its 6% -> 22%), stretched over the
+   whole single run; no fade-out, so the stamp stays on the page. */
+@keyframes fx-stamp {
+	0%   { transform: rotate(-6deg) scale(2.4); opacity: 0; filter: blur(4px); }
+	50%  { transform: rotate(-6deg) scale(.96); opacity: 1; filter: blur(0); }
+	75%  { transform: rotate(-6deg) scale(1.04); }
+	100% { transform: rotate(-6deg) scale(1); opacity: 1; filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	/* no animation: just show the stamp, resting at its tilt */
+	.fx-stamp { animation: none; transform: rotate(-6deg); }
 }
 
 .contacts {
@@ -252,26 +285,110 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .contacts li + li { margin-top: 0; }
 
+/* Small "opens in a new tab" icon after external links */
+.link-icon {
+	display: inline-block;
+	width: 1.1em;
+	height: 1.1em;
+	margin-left: 0.3em;
+	vertical-align: -0.25em; /* centers the glyph on the lowercase letters */
+	fill: currentColor;
+}
+/* The sheen effect makes the email's text color transparent (the gradient
+   shows through the letters), so its icon gets the text color explicitly. */
+.fx-chrome .link-icon { fill: var(--ink); }
+
+/* Contact email: bold, with a light sheen sweeping across the letters.
+   Adapted from "Chromia" (fx-chrome) to the palette: the text stays the
+   full --text color (readable on the light panel) and the passing band
+   goes green -> lime -> green instead of a white glint. */
+.contact-email { font-weight: 700; }
+
+/* The sheen band travels across the text (instead of sliding an oversized
+   background). A plain 0 -> 1 progress value (--sheen-t) is animated with
+   fixed keyframes; the band position is computed from it below. Each cycle
+   lasts pass + pause: during the pause the band keeps moving at the same
+   speed past the right edge (invisible), so speed and pause are independent. */
+@property --sheen-t {
+	syntax: '<number>';
+	initial-value: 0;
+	inherits: false;
+}
+
+.fx-chrome {
+	--ink: var(--text);
+	--ink-2: var(--accent);   /* sheen edges  */
+	--ink-3: var(--accent-2); /* sheen center */
+	--sheen-w: 5%;            /* half-width of the highlight band */
+	--sheen-duration: 0.375;   /* seconds for one pass across the text */
+	--sheen-delay: 3.35;         /* seconds of pause between two passes (0 = none) */
+	--sheen-start: 1.2;          /* seconds to wait after page load before the first pass */
+
+	/* -10% -> 110% is one pass (120%); stretched by the pause share of the cycle */
+	--sheen-pos: calc(-10% + 120% * var(--sheen-t) * (1 + var(--sheen-delay) / var(--sheen-duration)));
+
+	background: linear-gradient(105deg,
+		var(--ink) 0 calc(var(--sheen-pos) - var(--sheen-w)),
+		var(--ink-2) calc(var(--sheen-pos) - var(--sheen-w) / 2),
+		var(--ink-3) var(--sheen-pos),
+		var(--ink-2) calc(var(--sheen-pos) + var(--sheen-w) / 2),
+		var(--ink) calc(var(--sheen-pos) + var(--sheen-w)) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation-name: fx-chrome;
+	animation-duration: calc((var(--sheen-duration) + var(--sheen-delay)) * 1s);
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-delay: calc(var(--sheen-start) * 1s); /* before the first pass only; the band waits off-text */
+}
+
+@keyframes fx-chrome {
+	from { --sheen-t: 0; }
+	to   { --sheen-t: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fx-chrome { animation: none; }
+}
+
 /* ==========================================================
    Work history timeline
    ========================================================== */
 /* Layout: [ dates column | line + dots | entry content ] */
 .timeline {
 	--tl-date-w: 52px; /* width of the dates column, left of the line */
+	--tl-trail: 72px;  /* length of the dashed, fading tail below the last entry */
 	list-style: none;
 	margin: 0;
-	padding: 0 0 48px calc(var(--tl-date-w) + 28px); /* bottom: line runs past last entry */
+	padding: 0 0 var(--tl-trail) calc(var(--tl-date-w) + 28px); /* bottom: room for the tail */
 	position: relative;
 }
 
+/* Solid line: from the first dot down to where the tail starts */
 .timeline::before {
 	content: "";
 	position: absolute;
 	left: calc(var(--tl-date-w) + 6px);
 	top: 8px;
-	bottom: 0;
+	bottom: var(--tl-trail);
 	width: 2px;
 	background: var(--accent);
+}
+
+/* Tail: the line continues as dashes that fade out */
+.timeline::after {
+	content: "";
+	position: absolute;
+	left: calc(var(--tl-date-w) + 6px);
+	bottom: 0;
+	width: 2px;
+	height: var(--tl-trail);
+	background: repeating-linear-gradient(to bottom,
+		var(--accent) 0 6px,
+		transparent 6px 11px);
+	-webkit-mask: linear-gradient(to bottom, #000, transparent);
+	mask: linear-gradient(to bottom, #000, transparent);
 }
 
 .timeline > li {
@@ -371,7 +488,7 @@ img { max-width: 100%; height: auto; display: block; }
 	font-weight: 400;
 }
 
-.skills-table tbody tr { border-bottom: 1px solid var(--line); }
+.skills-table tbody tr { border-bottom: 2px solid var(--line); }
 .skills-table tbody tr:last-child { border-bottom: 0; }
 /* Row label top-aligned; extra top padding lines its text up with the first row of chips */
 .skills-table tbody th { font-weight: 700; white-space: nowrap; vertical-align: top; padding-top: 10px; }
@@ -531,7 +648,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .project {
 	padding: var(--pad) 0;
-	border-top: 1px solid var(--line);
+	border-top: 3px solid var(--line);
 }
 .project:first-of-type { border-top: 0; padding-top: 0; }
 
@@ -660,7 +777,7 @@ img { max-width: 100%; height: auto; display: block; }
 	font-size: 1.4rem;
 	margin: calc(var(--pad) * 1.2) 0 var(--gap);
 	padding-top: var(--pad);
-	border-top: 1px solid var(--line);
+	border-top: 3px solid var(--line);
 }
 
 .compact-grid {
@@ -709,6 +826,80 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ==========================================================
+   Footer: same panel style (it's a .card), toned down
+   ========================================================== */
+.site-footer {
+	margin-top: calc(var(--gap) * 2);
+	padding-top: 18px;
+	padding-bottom: 18px;
+	text-align: center;
+	font-size: 0.9rem;
+	color: var(--text-dim);
+	/* muted: panel color blended a little toward the page background */
+	background: color-mix(in srgb, var(--panel) 85%, var(--bg));
+}
+
+.site-footer ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 4px 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.site-footer li + li { margin-top: 0; }
+.site-footer li + li::before {
+	content: "·";
+	margin: 0 12px;
+}
+
+.site-footer a { color: inherit; }
+
+/* ==========================================================
+   Back-to-top button (bottom right, shown once scrolled down)
+   ========================================================== */
+.to-top {
+	position: fixed;
+	right: clamp(14px, 3vw, 28px);
+	bottom: clamp(14px, 3vw, 28px);
+	z-index: 50;
+	display: grid;
+	place-items: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: var(--accent);
+	color: var(--panel);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+
+	/* hidden until the page is scrolled (JS toggles .is-visible) */
+	opacity: 0;
+	transform: translateY(12px);
+	pointer-events: none;
+	transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.15s;
+}
+
+.to-top.is-visible {
+	opacity: 1;
+	transform: none;
+	pointer-events: auto;
+}
+
+.to-top:hover,
+.to-top:focus-visible { background: var(--bg); }
+
+.to-top:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+.to-top svg {
+	width: 22px;
+	height: 22px;
+	fill: currentColor;
+	margin-top: -2px; /* optical centering: the chevron sits low in its viewBox */
+}
+
+/* ==========================================================
    Responsive
    ========================================================== */
 @media (max-width: 1000px) {
@@ -738,16 +929,21 @@ img { max-width: 100%; height: auto; display: block; }
 </head>
 
 <body>
+<a href="#me" class="to-top" id="to-top" aria-label="Back to top" title="Back to top">
+	<!-- Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. -->
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path d="M297.4 169.4C309.9 156.9 330.2 156.9 342.7 169.4L534.7 361.4C547.2 373.9 547.2 394.2 534.7 406.7C522.2 419.2 501.9 419.2 489.4 406.7L320 237.3L150.6 406.6C138.1 419.1 117.8 419.1 105.3 406.6C92.8 394.1 92.8 373.8 105.3 361.3L297.3 169.3z"/></svg>
+</a>
+
 <div class="page">
 
 	<!-- ===================== TITLE & CONTACTS ===================== -->
 	<header class="hero card" id="me">
 		<h1>Gonzalez Damien</h1>
 		<div class="pronouns">he / him</div>
-		<h2 class="role">Game Programmer</h2>
+		<h2 class="role fx-stamp">Game Programmer</h2>
 		<ul class="contacts">
-			<li><a href="mailto:gonzalez.damien.kiok@gmail.com">gonzalez.damien.kiok@gmail.com</a></li>
-			<li><a href="https://kiiok.itch.io" target="_blank" rel="noopener noreferrer">kiiok.itch.io</a></li>
+			<li><a class="contact-email fx-chrome" href="mailto:gonzalez.damien.kiok@gmail.com">gonzalez.damien.kiok@gmail.com<!-- Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. --><svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z"/></svg></a></li>
+			<li><a class="external-link" href="https://kiiok.itch.io" target="_blank" rel="noopener noreferrer">kiiok.itch.io<!-- Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. --><svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path d="M354.4 83.8C359.4 71.8 371.1 64 384 64L544 64C561.7 64 576 78.3 576 96L576 256C576 268.9 568.2 280.6 556.2 285.6C544.2 290.6 530.5 287.8 521.3 278.7L464 221.3L310.6 374.6C298.1 387.1 277.8 387.1 265.3 374.6C252.8 362.1 252.8 341.8 265.3 329.3L418.7 176L361.4 118.6C352.2 109.4 349.5 95.7 354.5 83.7zM64 240C64 195.8 99.8 160 144 160L224 160C241.7 160 256 174.3 256 192C256 209.7 241.7 224 224 224L144 224C135.2 224 128 231.2 128 240L128 496C128 504.8 135.2 512 144 512L400 512C408.8 512 416 504.8 416 496L416 416C416 398.3 430.3 384 448 384C465.7 384 480 398.3 480 416L480 496C480 540.2 444.2 576 400 576L144 576C99.8 576 64 540.2 64 496L64 240z"/></svg></a></li>
 		</ul>
 	</header>
 
@@ -824,8 +1020,8 @@ img { max-width: 100%; height: auto; display: block; }
 				<tbody>
 					<tr>
 						<th scope="row">Programming<br>Languages</th>
-						<td><ul class="chips"><li>C#</li><li>C++</li><li>C</li><li>LUA</li><li>Odin</li></ul></td>
-						<td><ul class="chips"><li>Nim</li><li>Haxe</li><li>Python</li></ul></td>
+						<td><ul class="chips"><li>C#</li><li>C++</li><li>C</li><li>LUA</li><li>Python</li><li>Odin</li></ul></td>
+						<td><ul class="chips"><li>Java</li><li>Haxe</li><li>Nim</li></ul></td>
 					</tr>
 					<tr>
 						<th scope="row">Engines</th>
@@ -834,13 +1030,13 @@ img { max-width: 100%; height: auto; display: block; }
 					</tr>
 					<tr>
 						<th scope="row">Libraries</th>
-						<td><ul class="chips"><li>Flecs</li><li>Enet</li><li>PS5 SDK</li><li>Xbox SDK</li></ul></td>
-						<td><ul class="chips"><li>Raylib</li><li>MonoGame</li><li>LibGDX</li></ul></td>
+						<td><ul class="chips"><li>DearImGUI</li><li>Flecs</li><li>Enet</li><li>PS5 SDK</li><li>Xbox SDK</li></ul></td>
+						<td><ul class="chips"><li>SDL3</li><li>OpenGL</li><li>Raylib</li><li>MonoGame</li><li>LibGDX</li></ul></td>
 					</tr>
 					<tr>
 						<th scope="row">Software</th>
-						<td><ul class="chips"><li>Blender</li><li>3DsMax</li><li>Substance Designer</li><li>Photoshop</li></ul></td>
-						<td></td>
+						<td><ul class="chips"><li>Blender</li><li>RadDebugger</li><li>Superluminal</li><li>3DsMax</li><li>Substance Designer</li><li>Photoshop</li></ul></td>
+						<td><ul class="chips"><li>Tracy</li></ul></td>
 					</tr>
 					<tr>
 						<th scope="row">Source Control</th>
@@ -1003,7 +1199,7 @@ img { max-width: 100%; height: auto; display: block; }
 							<li>Developed various weapons useable in VR (Bow, Revolver, Machine Gun, Unreleased weapons)</li>
 							<li>Built custom tools to help with enemy pathing and wave management for designers</li>
 							<li>Developed the towers' various interactions</li>
-							<li>VR UI programming</li>
+							<li>VR UI / UX programming</li>
 						</ul>
 					</div>
 				</div>
@@ -1186,6 +1382,14 @@ img { max-width: 100%; height: auto; display: block; }
 		</section>
 
 	</main>
+
+	<footer class="card site-footer">
+		<ul>
+			<li>Gonzalez Damien</li>
+			<li><a href="mailto:gonzalez.damien.kiok@gmail.com">gonzalez.damien.kiok@gmail.com</a></li>
+			<li>2026</li>
+		</ul>
+	</footer>
 </div>
 
 <script>
@@ -1211,6 +1415,26 @@ img { max-width: 100%; height: auto; display: block; }
 			wraps.forEach(applyScale);
 		});
 	}
+})();
+
+/* Back-to-top button: appear after scrolling down a bit; on click, scroll
+   to the very top and clear any #hash left by the project shortcuts. */
+(function () {
+	var button = document.getElementById('to-top');
+	if (!button) return;
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+	function update() {
+		button.classList.toggle('is-visible', window.scrollY > 400);
+	}
+	window.addEventListener('scroll', update, { passive: true });
+	update();
+
+	button.addEventListener('click', function (e) {
+		e.preventDefault();
+		window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+		history.replaceState(null, '', location.pathname + location.search);
+	});
 })();
 
 /* Portfolio shortcuts: smooth-scroll to the project, update the URL hash
