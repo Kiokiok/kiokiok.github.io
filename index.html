@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300..800;1,300..800&family=Libertinus+Mono&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================
@@ -33,6 +33,7 @@
 
 	--font-head: 'Bona Nova', Georgia, serif;
 	--font-body: 'Crimson Pro', Georgia, serif;
+	--font-mono: 'Libertinus Mono', monospace;
 }
 
 /* ==========================================================
@@ -181,17 +182,19 @@ img { max-width: 100%; height: auto; display: block; }
 /* ==========================================================
    Work history timeline
    ========================================================== */
+/* Layout: [ dates column | line + dots | entry content ] */
 .timeline {
+	--tl-date-w: 52px; /* width of the dates column, left of the line */
 	list-style: none;
 	margin: 0;
-	padding: 0 0 48px 28px; /* bottom padding: line runs past last entry */
+	padding: 0 0 48px calc(var(--tl-date-w) + 28px); /* bottom: line runs past last entry */
 	position: relative;
 }
 
 .timeline::before {
 	content: "";
 	position: absolute;
-	left: 6px;
+	left: calc(var(--tl-date-w) + 6px);
 	top: 8px;
 	bottom: 0;
 	width: 2px;
@@ -234,6 +237,23 @@ img { max-width: 100%; height: auto; display: block; }
 	color: var(--text-dim);
 	font-size: 0.9rem;
 	white-space: nowrap;
+}
+
+/* Entry dates sit in the left column, right-aligned against the line */
+.tl-head .tl-dates {
+	position: absolute;
+	top: 3px;
+	left: calc(-1 * (var(--tl-date-w) + 28px));
+	width: calc(var(--tl-date-w) - 6px);
+	text-align: right;
+	font-family: var(--font-mono); /* monospaced: years line up digit for digit */
+	font-size: 1rem;
+	font-weight: 400; /* Libertinus Mono only ships a regular weight */
+	line-height: 1.3;
+	color: var(--text);
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column; /* latest year on top: reads chronologically bottom to top */
 }
 
 .tl-role {
@@ -290,12 +310,16 @@ img { max-width: 100%; height: auto; display: block; }
    Portfolio
    ========================================================== */
 
-/* Project shortcut buttons */
+/* Project shortcut buttons: full-bleed band across the portfolio card.
+   Negative side margins cancel the card's padding so it touches both edges. */
 .project-nav {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	margin-bottom: calc(var(--pad) * 1.2);
+	margin: 0 calc(-1 * var(--pad)) calc(var(--pad) * 1.2);
+	padding: 16px var(--pad);
+	background: var(--panel-alt);
+	border-radius: 0;
 }
 
 .project-nav ul {
@@ -321,7 +345,7 @@ img { max-width: 100%; height: auto; display: block; }
 	display: inline-block;
 	padding: 5px 14px;
 	border-radius: 999px;
-	background: var(--panel-alt);
+	background: var(--panel);
 	border: 1px solid transparent;
 	color: var(--text);
 	font-family: var(--font-head);
@@ -380,15 +404,15 @@ img { max-width: 100%; height: auto; display: block; }
 
 .tag {
 	display: inline-block;
-	font-family: var(--font-head);
-	font-size: 0.75rem;
-	letter-spacing: 0.08em;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	padding: 2px 10px;
 	border-radius: 999px;
 	background: var(--accent-2);
 	color: var(--text);
-	font-weight: 700;
+	font-weight: 400; /* Libertinus Mono only ships a regular weight */
 }
 
 .meta-strip {
@@ -595,7 +619,7 @@ img { max-width: 100%; height: auto; display: block; }
 			<h2 class="card-title">Work history</h2>
 			<ol class="timeline">
 				<li>
-					<div class="tl-head"><h3>Midgar Studio</h3><span class="tl-dates">2024 – 2026</span></div>
+					<div class="tl-head"><h3>Midgar Studio</h3><span class="tl-dates"><span>2026</span><span>2024</span></span></div>
 					<div class="tl-role">Lead Programmer <span class="tl-dates">(2026)</span> · Gameplay Programmer <span class="tl-dates">(2024 – 2026)</span></div>
 					<p class="tl-desc">Worked on <a class="tl-link" href="#edge-of-memories">Edge Of Memories</a>, a singleplayer Action RPG for PC, PS5 and Xbox, in a studio of around 35 people. Joined as a Gameplay Programmer, then became Lead Programmer in 2026 for the run-up to release.</p>
 					<ul class="tl-highlights">
@@ -604,7 +628,7 @@ img { max-width: 100%; height: auto; display: block; }
 					</ul>
 				</li>
 				<li>
-					<div class="tl-head"><h3>Cliffdivers Project</h3><span class="tl-dates">2023 – 2024</span></div>
+					<div class="tl-head"><h3>Cliffdivers Project</h3><span class="tl-dates"><span>2024</span><span>2023</span></span></div>
 					<div class="tl-role">Principal Programmer</div>
 					<p class="tl-desc">Sole programmer on <a class="tl-link" href="#cliffdivers">Cliffdivers</a>, a procedural multiplayer survival adventure for PC built in Godot by a team of 4, with the goal of co-founding a studio. Handled pretty much every technical aspect of the game.</p>
 					<ul class="tl-highlights">
@@ -616,7 +640,7 @@ img { max-width: 100%; height: auto; display: block; }
 					</ul>
 				</li>
 				<li>
-					<div class="tl-head"><h3>Aiko Creative</h3><span class="tl-dates">2020 – 2022</span></div>
+					<div class="tl-head"><h3>Aiko Creative</h3><span class="tl-dates"><span>2022</span><span>2020</span></span></div>
 					<div class="tl-role">Principal Programmer</div>
 					<p class="tl-desc">Lead programmer on the studio's projects, shipping a VR game, a mobile game, and various B2B games and applications in Unity and Unreal Engine.</p>
 					<ul class="tl-highlights">
@@ -626,12 +650,12 @@ img { max-width: 100%; height: auto; display: block; }
 					</ul>
 				</li>
 				<li>
-					<div class="tl-head"><h3>Studio Muybridge</h3><span class="tl-dates">2019 – 2020</span></div>
+					<div class="tl-head"><h3>Studio Muybridge</h3><span class="tl-dates"><span>2020</span><span>2019</span></span></div>
 					<div class="tl-role">Programmer</div>
 					<p class="tl-desc">Worked with hardware interfacing for a racing simulator, and worked on various B2B applications and games.</p>
 				</li>
 				<li>
-					<div class="tl-head"><h3>ETPA School of Game Design</h3><span class="tl-dates">2016 – 2019</span></div>
+					<div class="tl-head"><h3>ETPA School of Game Design</h3><span class="tl-dates"><span>2019</span><span>2016</span></span></div>
 					<div class="tl-role">Student</div>
 					<p class="tl-desc">Game design studies, including lead programming on student projects such as <a class="tl-link" href="#ranch-rumble">Redneck Ranch Rumble</a>, a 2-player local party game (Shiva, LUA).</p>
 				</li>
@@ -689,7 +713,7 @@ img { max-width: 100%; height: auto; display: block; }
 			<article class="project" id="edge-of-memories">
 				<header class="project-header">
 					<h3>Edge Of Memories <span class="project-year">(2024 – 2026)</span></h3>
-					<span class="tag">PC, PS5, Xbox Game</span>
+					<span class="tag">PC / PS5 / Xbox Game</span>
 				</header>
 				<dl class="meta-strip">
 					<div><dt>Role</dt><dd>Lead Programmer (2026)<br>Gameplay Programmer (2024 – 2026)</dd></div>
