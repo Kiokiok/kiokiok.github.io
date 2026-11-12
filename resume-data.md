@@ -71,24 +71,29 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 ## Portfolio Projects
 
 ### Edge Of Memories (2024 - 2026) - PC, PS5, XBOX Game
-- Role 2026 Lead Programmer
-- Role 2024 > 2026 Gameplay Programmer
+- Role 2025 > 2026 Lead Programmer
+- Role 2024 > 2025 Gameplay Programmer
 - Studio : Midgar Studio
 - Team Size : Around 35
 - Status: Release 3 Dec, 2026
 - Description: A Singleplayer Action RPG.
-- Details: 
-	- TODO
+- Details: I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extenting their functionnalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management. In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher.
 - Images: 
-	- TODO
+	- assets/edge-of-memories-1.webp
+	- assets/edge-of-memories-2.webp
+	- assets/edge-of-memories-3.webp
 - Videos:
-	- TODO
+	- https://www.youtube.com/watch?v=ppaKznmtuEM ( Release Trailer )
+	- https://www.youtube.com/watch?v=Vk8JHTjxoHw ( Announcement Trailer )
 - Technical Information:
   - Engine: Unreal Engine 5
   - Languages used: C++, Blueprints
   - Worked with consoles Platforms SDKs ( PS5 , XBOX )
 - Notes: 
-	- TODO
+	- Helped re-architect some existing systems to improve useability, robustness and performance
+	- Integrated DearImGUI in Unreal to help create debugging tools
+	- Debugged various parts of the codebase, both general bugs and console specific ones
+	- Did A LOT of debugging
 
 
 ### Cliffdivers (2023) — PC Game
@@ -107,9 +112,9 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
   The game uses a data-driven approach to a lot of things: Entity declaration, Items declaration, Character controller configuration, among other things.
   This was done to help development time and later on help bring modding support to the game.
 - Images:
-  - https://i.imgur.com/0nxpdVD.jpeg
-  - https://i.imgur.com/Ds65GJc.jpeg
-  - https://i.imgur.com/aQVLQDP.jpeg
+  - assets/cliffdivers-1.webp
+  - assets/cliffdivers-2.webp
+  - assets/cliffdivers-3.webp
 - Videos:
   - https://www.youtube.com/embed/F-_Bv38gP9U (showcase)
   - https://www.youtube.com/embed/5X1Ran8f5z4 (one year progress)
@@ -247,7 +252,7 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
   A simple finite state machine configuration in the editor.
 - Links:
   - Itch.io embed: https://itch.io/embed/446434 (https://kiiok.itch.io/mekastasis — Unmaintained)
-  - Image: https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png
+  - Image: assets/mekastasis-1.webp
 - Technical Information:
   - Engine: Unity
   - Language used: C#

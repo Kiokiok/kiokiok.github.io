@@ -709,10 +709,17 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .meta-strip dd { margin: 0; }
+.meta-strip dd .role-line { white-space: nowrap; display: inline-flex; align-items: center; }
+.meta-strip dd .date-range { font-size: 0.85em; color: var(--text-dim); margin-left: 0.35em; }
 
 .project-lead {
 	font-size: 1.1rem;
 	font-weight: 600;
+}
+
+.project p,
+.project-compact p {
+	line-height: 1.35;
 }
 
 .media {
@@ -968,7 +975,7 @@ img { max-width: 100%; height: auto; display: block; }
 			<ol class="timeline">
 				<li>
 					<div class="tl-head"><h3>Midgar Studio</h3><span class="tl-dates"><span>2026</span><span>2024</span></span></div>
-					<div class="tl-role">Lead Programmer <span class="tl-dates">(2026)</span> · Gameplay Programmer <span class="tl-dates">(2024 – 2026)</span></div>
+					<div class="tl-role">Lead Programmer <span class="tl-dates">(2025 - 2026)</span><br>Gameplay Programmer <span class="tl-dates">(2024 – 2025)</span></div>
 					<p class="tl-desc">Worked on <a class="tl-link" href="#edge-of-memories">Edge Of Memories</a>, a singleplayer Action RPG for PC, PS5 and Xbox, in a studio of around 35 people. Joined as a Gameplay Programmer, then became Lead Programmer in 2026 for the run-up to release.</p>
 					<ul class="tl-highlights">
 						<li>Gameplay programming in Unreal Engine 5 (C++, Blueprints)</li>
@@ -1084,12 +1091,24 @@ img { max-width: 100%; height: auto; display: block; }
 					<span class="tag">PC / PS5 / Xbox Game</span>
 				</header>
 				<dl class="meta-strip">
-					<div><dt>Role</dt><dd>Lead Programmer (2026)<br>Gameplay Programmer (2024 – 2026)</dd></div>
+					<div><dt>Role</dt><dd><span class="role-line">Lead Programmer <span class="date-range">(2025 – 2026)</span></span><br><span class="role-line">Gameplay Programmer <span class="date-range">(2024 – 2025)</span></span></dd></div>
 					<div><dt>Studio</dt><dd>Midgar Studio</dd></div>
 					<div><dt>Team size</dt><dd>Around 35 people</dd></div>
 					<div><dt>Status</dt><dd>Releasing Dec 3, 2026</dd></div>
 				</dl>
 				<p class="project-lead">A singleplayer Action RPG.</p>
+				<p>I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extending their functionalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management.</p>
+				<p>In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher.</p>
+
+				<div class="media">
+					<img src="assets/edge-of-memories-1.webp" alt="Edge Of Memories screenshot" loading="lazy">
+					<img src="assets/edge-of-memories-2.webp" alt="Edge Of Memories screenshot" loading="lazy">
+					<img src="assets/edge-of-memories-3.webp" alt="Edge Of Memories screenshot" loading="lazy">
+				</div>
+				<div class="media">
+					<iframe class="video" src="https://www.youtube.com/embed/ppaKznmtuEM" title="Release Trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<iframe class="video" src="https://www.youtube.com/embed/Vk8JHTjxoHw" title="Announcement Trailer" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
 
 				<div class="project-details">
 					<div>
@@ -1098,6 +1117,15 @@ img { max-width: 100%; height: auto; display: block; }
 							<li>Engine: <b>Unreal Engine 5</b></li>
 							<li>Languages used: C++, Blueprints</li>
 							<li>Worked with console platform SDKs (PS5, Xbox)</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Notes</h4>
+						<ul>
+							<li>Helped re-architect some existing systems to improve usability, robustness and performance</li>
+							<li>Integrated <a href="https://github.com/ocornut/imgui" target="_blank" rel="noopener noreferrer">Dear ImGui</a> in Unreal to help create debugging tools</li>
+							<li>Debugged various parts of the codebase, both general bugs and console specific ones</li>
+							<li>Did a <u>lot</u> of debugging</li>
 						</ul>
 					</div>
 				</div>
@@ -1127,9 +1155,9 @@ img { max-width: 100%; height: auto; display: block; }
 				This was done to help development time and later on help bring modding support to the game.</p>
 
 				<div class="media">
-					<img src="https://i.imgur.com/0nxpdVD.jpeg" alt="Cliffdivers screenshot" loading="lazy">
-					<img src="https://i.imgur.com/Ds65GJc.jpeg" alt="Cliffdivers screenshot" loading="lazy">
-					<img src="https://i.imgur.com/aQVLQDP.jpeg" alt="Cliffdivers screenshot" loading="lazy">
+					<img src="assets/cliffdivers-1.webp" alt="Cliffdivers screenshot" loading="lazy">
+					<img src="assets/cliffdivers-2.webp" alt="Cliffdivers screenshot" loading="lazy">
+					<img src="assets/cliffdivers-3.webp" alt="Cliffdivers screenshot" loading="lazy">
 				</div>
 				<div class="media">
 					<iframe class="video" src="https://www.youtube.com/embed/F-_Bv38gP9U" title="Cliffdivers showcase" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -1372,7 +1400,7 @@ img { max-width: 100%; height: auto; display: block; }
 					<div class="itch-embed-wrap">
 						<iframe class="itch-embed" loading="lazy" title="Mekastasis on itch.io" src="https://itch.io/embed/446434?bg_color=f4e9d4&amp;fg_color=452b3f&amp;link_color=2c5e3b&amp;border_color=f4e9d4"><a href="https://kiiok.itch.io/mekastasis">[ Unmaintained ] MekaStasis, Unity State Machine Editor by Kiiok</a></iframe>
 					</div>
-					<img src="https://img.itch.zone/aW1hZ2UvNDQ2NDM0LzIyNTM5NDMucG5n/original/IOeBSz.png" alt="Mekastasis state machine editor screenshot" loading="lazy">
+					<img src="assets/mekastasis-1.webp" alt="Mekastasis state machine editor screenshot" loading="lazy">
 					<ul>
 						<li>Engine: <b>Unity</b> (C#)</li>
 					</ul>
