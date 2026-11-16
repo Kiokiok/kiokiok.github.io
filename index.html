@@ -684,6 +684,17 @@ img { max-width: 100%; height: auto; display: block; }
 	font-weight: 400; /* Libertinus Mono only ships a regular weight */
 }
 
+.tag-link {
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+.tag-link:hover,
+.tag-link:focus-visible {
+	background: var(--accent);
+	color: #fff;
+}
+
 .meta-strip {
 	display: flex;
 	flex-wrap: wrap;
@@ -961,12 +972,14 @@ img { max-width: 100%; height: auto; display: block; }
 			<h2 class="card-title">About me</h2>
 			<p>I've always had a keen interest in video games and the work that goes into them for as long as I can remember.
 			Today this curiosity is stronger than ever and every day drives my passion for my work.
-			I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great experiences to people.</p>
-			<p>I strongly believe making video games is a team effort, and I hope to be able to bring as much to my peers as they could bring to me.
+			I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great games and experiences to people.</p>
+			<p>I strongly believe making video games is a team effort, and I really enjoy working in a team striving to reach the same common goal.
 			Throughout the years, I have acquired various skills on many tools, ranging from programming language, to engines, to 3D and 2D software.
-			I'm very passionate about my work in games, and I enjoy working in many different fields of the trade, albeit programming remains my favorite domain to explore.</p>
+			I can efficiently communicate with most people working in the various fields in the video game development world.
+			I'm very passionate about my work, and I enjoy collaborating with many different aspect of the trade, albeit programming remains my favorite aspect to explore.</p>
 			<p>My favorite game genres include Action RPGs, Strategy RPGs, Sandbox survivals and Tactics games.
-			During my free time, I enjoy learning about new things, reading mangas and fantasy novels, playing D&amp;D, or trying out my hand at art.</p>
+			During my free time, I enjoy learning about new things, reading mangas and fantasy novels, or trying out my hand at art.
+			I love collecting Table Top RPGs more so than playing them.</p>
 		</section>
 
 		<!-- ===================== WORK HISTORY ===================== -->
@@ -1089,6 +1102,7 @@ img { max-width: 100%; height: auto; display: block; }
 				<header class="project-header">
 					<h3>Edge Of Memories <span class="project-year">(2024 – 2026)</span></h3>
 					<span class="tag">PC / PS5 / Xbox Game</span>
+					<a class="tag tag-link" href="https://store.steampowered.com/app/2738170/Edge_of_Memories/" target="_blank" rel="noopener noreferrer">Steam<!-- Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. --><svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path d="M568 320C568 457 456.8 568 319.6 568C205.8 568 110 491.7 80.6 387.6L175.8 426.9C182.2 459 210.7 483.3 244.7 483.3C283.9 483.3 316.6 450.9 314.9 409.8L399.4 349.6C451.5 350.9 495.2 308.7 495.2 256.1C495.2 204.5 453.2 162.6 401.5 162.6C349.8 162.6 307.8 204.6 307.8 256.1L307.8 257.3L248.6 343C233.1 342.1 217.9 346.4 205.1 355.1L72 300.1C82.2 172.4 189.1 72 319.6 72C456.8 72 568 183 568 320zM227.7 448.3L197.2 435.7C202.8 447.3 212.5 456.5 224.4 461.5C251.3 472.7 282.2 459.9 293.4 433.1C298.8 420.1 298.9 405.8 293.5 392.8C288.1 379.8 278 369.6 265 364.2C252.1 358.8 238.3 359 226.1 363.6L257.6 376.6C277.4 384.8 286.8 407.5 278.5 427.3C270.2 447.2 247.5 456.5 227.7 448.3zM401.5 193.8C435.9 193.8 463.8 221.7 463.8 256.1C463.8 290.5 435.9 318.4 401.5 318.4C367.1 318.4 339.2 290.5 339.2 256.1C339.2 221.7 367.1 193.8 401.5 193.8zM401.6 302.8C427.4 302.8 448.4 281.8 448.4 256C448.4 230.2 427.4 209.2 401.6 209.2C375.8 209.2 354.8 230.2 354.8 256C354.8 281.8 375.8 302.8 401.6 302.8z"/></svg></a>
 				</header>
 				<dl class="meta-strip">
 					<div><dt>Role</dt><dd><span class="role-line">Lead Programmer <span class="date-range">(2025 – 2026)</span></span><br><span class="role-line">Gameplay Programmer <span class="date-range">(2024 – 2025)</span></span></dd></div>
@@ -1097,9 +1111,9 @@ img { max-width: 100%; height: auto; display: block; }
 					<div><dt>Status</dt><dd>Releasing Dec 3, 2026</dd></div>
 				</dl>
 				<p class="project-lead">A singleplayer Action RPG.</p>
-				<p>I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extending their functionalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management.</p>
-				<p>In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher.</p>
-
+				<p>I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extending their functionalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management systems.</p>
+				<p>In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher, ensuring working game builds and on-time deliveries.</p>
+				<p>The studio closed in June 2026 before we could ship the game, but the publisher, Nacon, is still releasing the game regardless.</p>
 				<div class="media">
 					<img src="assets/edge-of-memories-1.webp" alt="Edge Of Memories screenshot" loading="lazy">
 					<img src="assets/edge-of-memories-2.webp" alt="Edge Of Memories screenshot" loading="lazy">

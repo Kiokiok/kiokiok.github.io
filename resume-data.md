@@ -5,25 +5,28 @@
 - Pronouns: he / him
 - Title: Game Programmer
 - Email: gonzalez.damien.kiok@gmail.com
+- Itch.io: https://kiiok.itch.io
 
 ## About Me
 I've always had a keen interest in video games and the work that goes into them for as long as I can remember.
 Today this curiosity is stronger than ever and every day drives my passion for my work.
-I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great experiences to people.
-I strongly believe making video games is a team effort, and I hope to be able to bring as much to my peers as they could bring to me.
+I'm constantly pushing myself and trying new things to improve my skills and knowledge in order to try and bring great games and experiences to people.
+I strongly believe making video games is a team effort, and I really enjoy working in a team striving to reach the same common goal. 
 Throughout the years, I have acquired various skills on many tools, ranging from programming language, to engines, to 3D and 2D software.
-I'm very passionate about my work in games, and I enjoy working in many different fields of the trade, albeit programming remains my favorite domain to explore.
+I can efficiently communicate with most people working in the various fields in the video game development world. 
+I'm very passionate about my work, and I enjoy collaborating with many different aspect of the trade, albeit programming remains my favorite aspect to explore.
 
 My favorite game genres include Action RPGs, Strategy RPGs, Sandbox survivals and Tactics games.
-During my free time, I enjoy learning about new things, reading mangas and fantasy novels, playing D&D, or trying out my hand at art.
+During my free time, I enjoy learning about new things, reading mangas and fantasy novels, or trying out my hand at art.
+I love collecting Table Top RPGs more so than playing them. 
 
 ## Skills
 
 | Category | Worked with | Experimented with |
 |---|---|---|
-| Programming Languages | C#, C++, C, LUA, Python, Odin | Java, Nim, Haxe |
+| Programming Languages | C#, C++, C, LUA, Python, Odin | Java, Haxe, Nim |
 | Engines | Unity, Unreal, Godot | |
-| Libraries | DearImGUI, Flecs, Enet, PS5 SDK, Xbox SDK | OpenGL, SDL3, Raylib, MonoGame, LibGDX |
+| Libraries | DearImGUI, Flecs, Enet, PS5 SDK, Xbox SDK | SDL3, OpenGL, Raylib, MonoGame, LibGDX |
 | Software | Blender, RadDebugger, Superluminal, 3DsMax, Substance Designer, Photoshop | Tracy |
 | Source Control | Git, PlasticSCM | |
 
@@ -35,8 +38,8 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 ## Work History
 
 ### Midgar Studio — 2024 - 2026
-- Role: Lead Programmer (2026)
-- Role: Gameplay Programmer (2024 - 2026)
+- Role: Lead Programmer (2025 - 2026)
+- Role: Gameplay Programmer (2024 - 2025)
 - Worked on Edge Of Memories, a singleplayer Action RPG for PC, PS5 and Xbox, in a studio of around 35 people. Joined as a Gameplay Programmer, then became Lead Programmer in 2026 for the run-up to release.
 - Highlights:
   - Gameplay programming in Unreal Engine 5 (C++, Blueprints)
@@ -76,8 +79,9 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 - Studio : Midgar Studio
 - Team Size : Around 35
 - Status: Release 3 Dec, 2026
+- Steam: https://store.steampowered.com/app/2738170/Edge_of_Memories/
 - Description: A Singleplayer Action RPG.
-- Details: I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extenting their functionnalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management. In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher.
+- Details: I joined the project in 2024 as a gameplay programmer to consolidate the programming team at Midgar Studio. There I mostly worked with the existing systems already in place, extenting their functionnalities and debugging them. I also worked on some CPU side optimizations. I worked on gameplay systems but also on some non gameplay features, such as localization integration or level management. In 2025 I took up the mantle of Lead Programmer to help improve the studio's source control workflows, compilation pipeline and improve coordination efforts during the final debugging and polishing phase of the project. I also handled regular monthly project deliveries to the publisher. The studio closed in June 2026 before we could ship the game, but the publisher, Nacon, is still releasing the game regardless.
 - Images: 
 	- assets/edge-of-memories-1.webp
 	- assets/edge-of-memories-2.webp
@@ -90,10 +94,10 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
   - Languages used: C++, Blueprints
   - Worked with consoles Platforms SDKs ( PS5 , XBOX )
 - Notes: 
-	- Helped re-architect some existing systems to improve useability, robustness and performance
-	- Integrated DearImGUI in Unreal to help create debugging tools
+	- Helped re-architect some existing systems to improve usability, robustness and performance
+	- Integrated [Dear ImGui](https://github.com/ocornut/imgui) in Unreal to help create debugging tools
 	- Debugged various parts of the codebase, both general bugs and console specific ones
-	- Did A LOT of debugging
+	- Did a *lot* of debugging
 
 
 ### Cliffdivers (2023) — PC Game
@@ -152,7 +156,7 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
   - Developed various weapons useable in VR (Bow, Revolver, Machine Gun, Unreleased weapons)
   - Built custom tools to help with enemy pathing and wave management for designers
   - Developed the towers' various interactions
-  - VR UI programming
+  - VR UI / UX programming
 
 ### Cliffdivers Prototypes (2021) — Game Prototype
 - Role: Lead Programmer
@@ -169,7 +173,7 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
   - Languages used: C++, Blueprints
 - Notes:
   - Prototyped a character controller, network replicated using Unreal Network System
-  - C++ / Blueprint Hybrid state machine
+  - C++ / Blueprint hybrid state machine
   - Setup of a custom entity renderer based on [Flecs](https://www.flecs.dev/flecs/)
 
 ### Aenigma Venatorum (2021 - 2022) — Mobile Game
@@ -183,7 +187,7 @@ During my free time, I enjoy learning about new things, reading mangas and fanta
 - Technical Information:
   - Engine: Unity
   - Language used: C#
-  - Platforms: [Android](https://play.google.com/store/apps/details?id=com.NKDPuzzle.AenigmaVenatorumFull&hl=fr&gl=US), [IOS](https://apps.apple.com/fr/app/aenigma-venatorum-integral/id1628758670)
+  - Platforms: [Android](https://play.google.com/store/apps/details?id=com.NKDPuzzle.AenigmaVenatorumFull&hl=fr&gl=US), [iOS](https://apps.apple.com/fr/app/aenigma-venatorum-integral/id1628758670)
 - Notes:
   - Recreated physical puzzles virtually
   - UI programming
